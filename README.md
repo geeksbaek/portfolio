@@ -62,7 +62,7 @@ archeage-discord-bot은 [archeage-go](https://github.com/geeksbaek/archeage-go) 
 
 `#network` `#security` `#hack` `#tool`
 
-go-arp-spoofer는 학교에서 프로젝트를 진행하여 개발한 프로그램입니다. 로컬 내에 있는 모든 호스트에게 arp 공격을 수행합니다.
+go-arp-spoofer는 학교에서 프로젝트 시간에 개발한 프로그램입니다. 로컬 내에 있는 모든 호스트에게 arp 공격을 수행합니다.
 
 다른 arp 스푸핑 프로그램과 조금 다른 점은 동시에 복수의 사용자를 공격할 수 있는 것에 더하여, 동시에 복수의 네트워크 인터페이스를 통한 공격도 지원한다는 것입니다.
 
