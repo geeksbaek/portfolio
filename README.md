@@ -2,7 +2,7 @@
 
 ## [ourChess](https://github.com/geeksbaek/ourChess) (2012~)
 
-#game #web #websocket #html5 #canvas #nodejs #spa
+`#game` `#web` `#websocket` `#html5` `#canvas` `#nodejs` `#spa`
 
 ourChess는 온라인 1:1 체스게임입니다. 대학교 1학년을 마친 뒤 군 휴학 중에 개발했습니다. ourChess는 제가 만든 첫 어플리케이션이기도 합니다. node.js로 구동되는 SPA이며 지금도 heroku에서 무료 할당량을 받아 서비스되고 있습니다.
 
@@ -14,7 +14,7 @@ ourChess는 온라인 1:1 체스게임입니다. 대학교 1학년을 마친 뒤
 
 ## [UnlimitedImageCombiner](https://github.com/geeksbaek/UnlimitedImageCombiner) (2012~)
 
-#tool #web #html5 #canvas #spa
+`#tool` `#web` `#html5` `#canvas` `#spa`
 
 UnlimitedImageCombiner는 브라우저에서 이미지를 손쉽게 합칠 수 있도록 도와주는 도구입니다. 
 
@@ -27,6 +27,20 @@ UnlimitedImageCombiner는 브라우저에서 이미지를 손쉽게 합칠 수 �
 서버가 필요 없는 단순한 웹 앱이기 때문에 github pages로 서비스 중입니다. [**여기**](https://geeksbaek.github.io/UnlimitedImageCombiner/)에서 사용해 보실 수 있습니다.
 
 ## [Project Arche](https://github.com/geeksbaek/Project-Arche) (2014~)
+
+`#web` `#google_apps_script` `#rest_api` `#google_app_engine` `#polymer` `#webhook`
+
+Project Arche는 아키에이지라는 MMORPG에 대한 프로젝트입니다. 2014년부터 개발되어 지금까지 계속 부수고 만들면서 관리되고 있습니다. 처음에는 게임의 데이터를 주기적으로 수집하여 통계를 내어 보여주는 웹사이트로 시작했다가, 지금은 통계를 내는 대신 경매장 검색, 캐릭터 검색 같은 기능을 제공하는 REST API 서버의 역할을 하고 있습니다.
+
+개발을 시작할 당시 아키에이지는 꽤 인기 있는 게임이었습니다. 세력 간 대립이 주요 컨텐츠였기 때문에 어떤 세력이 더 강한지, 어떤 세력이 성장하고 있는지가 플레이어들에게 중요한 이슈였습니다. 게임사에서 공식적으로 통계를 내주진 않았으나 각 길드의 정보는 홈페이지에서 제공되었으므로 사용자가 임의로 통계를 내는 것은 가능했습니다.
+
+데이터를 내려면 프로그램이 항상 돌고 있어야 하는데, 제 컴퓨터는 24시간 켜 둘 수 없었기 때문에 처음에는 Google Apps Script라는 클라우드 서비스를 사용하여 웹 파싱을 통해 데이터를 수집했습니다. 수집된 데이터는 Google Spreadsheets에 저장하여 통계를 냈습니다. 다른 클라우드 데이터베이스 서비스도 많았지만, 그 당시 가장 빠른 방법을 택했습니다.
+
+클라이언트는 Polymer라는 웹 툴킷을 이용해 개발했습니다. 글을 쓰고 있는 현재는 2.0 버전까지 와있는 Polymer지만, 당시는 0.x버전으로 프로덕션에 사용하기에는 적합하지 않았습니다. 그래도 최신 기술에 관심이 많았던 터라 굳이 사용해보았는데 결과적으로 나쁘지 않았습니다. 통계 사이트는 현재 서비스되고 있지 않지만 [동영상](https://www.youtube.com/watch?v=k35ciJNoqR0)으로 남아있습니다.
+
+게임을 접으면서 서비스를 중단했다가, 2017년 1월에 게임을 다시 시작하면서 프로젝트를 다시 시작하게 되었습니다. 새로운 게임 컨텐츠에 맞춰 웹 앱에 기능을 추가할까 했었는데, 게임이 예전만큼 인기가 없어서 사용하는 사람이 많지 않을 것 같아 포기했습니다.
+
+대신 게임 내 복잡한 아이템의 제작 비용을 계산해주는 시트를 만들어보기로 했습니다. 아이템을 만드는데 필요한 재료 아이템의 가격은 유동적이기 때문에 매번 재료 아이템의 가격을 경매장에서 구해와야 합니다. 이를 위한 [API 패키지](https://github.com/geeksbaek/archeage-go)를 만들었고, Project Arche라는 이름으로 Google App Engine에서 REST API 서버로 서비스하고 있습니다. 계산 시트와 API 서버를 [공개](http://www.inven.co.kr/board/powerbbs.php?come_idx=2641&my=post&l=12554)했고, 아직 많은 사람이 이용하고 있습니다.
 
 ### [archeage-go](https://github.com/geeksbaek/archeage-go) (2017~)
 
