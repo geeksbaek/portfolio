@@ -1,6 +1,6 @@
 # Portfolio
 
-## [ourChess](https://github.com/geeksbaek/ourChess) (2012~)
+## [ourChess](https://github.com/geeksbaek/ourChess) (2012)
 
 `#game` `#web` `#websocket` `#html5` `#canvas` `#nodejs` `#spa`
 
@@ -12,7 +12,7 @@ ourChess는 온라인 1:1 체스게임입니다. 대학교 1학년을 마친 뒤
 
 [**여기**](https://ourchess.herokuapp.com/)에서 플레이해보실 수 있습니다. 방을 생성한 사용자가 해당 방의 URL을 공유하여 게임 상대를 초대할 수 있습니다. 방을 생성한 사람이 White를 잡고, 두 번째로 입장한 사람이 Black을 잡습니다. 이후에 입장한 사람들은 자동으로 관전자가 됩니다.
 
-## [UnlimitedImageCombiner](https://github.com/geeksbaek/UnlimitedImageCombiner) (2012~)
+## [UnlimitedImageCombiner](https://github.com/geeksbaek/UnlimitedImageCombiner) (2012)
 
 `#tool` `#web` `#html5` `#canvas` `#spa`
 
@@ -46,12 +46,12 @@ Project Arche는 아키에이지라는 MMORPG에 대한 프로젝트입니다. 2
 
 ### [archeage-discord-bot](https://github.com/geeksbaek/archeage-discord-bot) (2017~)
 
-## [go-arp-spoofer](https://github.com/geeksbaek/go-arp-spoofer) (2016~)
+## [go-arp-spoofer](https://github.com/geeksbaek/go-arp-spoofer) (2016)
 
-## [Joongbu Web App](https://github.com/joongbu-capstone-2016-team-01) (2016~)
+## [Joongbu Web App](https://github.com/joongbu-capstone-2016-team-01) (2016~2017)
 
 ## [goinside](https://github.com/geeksbaek/goinside) (2016~)
 
-### [goinside-image-crawler](https://github.com/geeksbaek/goinside-image-crawler) (2016~)
+### [goinside-image-crawler](https://github.com/geeksbaek/goinside-image-crawler) (2016)
 
-### [goinside-gallog-cleaner](https://github.com/geeksbaek/goinside-gallog-cleaner) (2016~)
+### [goinside-gallog-cleaner](https://github.com/geeksbaek/goinside-gallog-cleaner) (2016)
