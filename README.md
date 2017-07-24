@@ -40,13 +40,31 @@ Project Arche는 아키에이지라는 MMORPG에 대한 프로젝트입니다. 2
 
 게임을 접으면서 서비스를 중단했다가, 2017년 1월에 게임을 다시 시작하면서 프로젝트를 다시 시작하게 되었습니다. 새로운 게임 컨텐츠에 맞춰 웹 앱에 기능을 추가할까 했었는데, 게임이 예전만큼 인기가 없어서 사용하는 사람이 많지 않을 것 같아 포기했습니다.
 
-대신 게임 내 복잡한 아이템의 제작 비용을 계산해주는 시트를 만들어보기로 했습니다. 아이템을 만드는데 필요한 재료 아이템의 가격은 유동적이기 때문에 매번 재료 아이템의 가격을 경매장에서 구해와야 합니다. 이를 위한 [API 패키지](https://github.com/geeksbaek/archeage-go)를 만들었고, Project Arche라는 이름으로 Google App Engine에서 REST API 서버로 서비스하고 있습니다. 계산 시트와 API 서버를 [공개](http://www.inven.co.kr/board/powerbbs.php?come_idx=2641&my=post&l=12554)했고, 아직 많은 사람이 이용하고 있습니다.
+대신 게임 내 복잡한 아이템의 제작 비용을 계산해주는 시트를 만들어보기로 했습니다. 아이템을 만드는데 필요한 재료 아이템의 가격은 유동적이기 때문에 매번 재료 아이템의 가격을 경매장에서 구해와야 합니다. 이를 위한 [API 패키지](https://github.com/geeksbaek/archeage-go)를 만들었고, Project Arche라는 이름으로 Google App Engine에서 REST API 서버로 서비스하고 있습니다. 계산 시트와 API 서버를 [공개](http://www.inven.co.kr/board/powerbbs.php?come_idx=2641&my=post&l=12554)한 뒤로 많은 사람이 이용하고 있습니다.
+
+지금은 discord의 webhook와 연동하여 공지사항 알리미 같은 서비스를 구현하고 있습니다.
+
+※github에 남아있는 코드는 웹 앱 개발 중 취소된 버전의 코드이며, REST API로 구현된 현재 서버의 코드는 OAuth 2.0에 사용되는 클라이언트 ID, 비밀키 등이 포함돼있어 공개하고 있지 않습니다.
 
 ### [archeage-go](https://github.com/geeksbaek/archeage-go) (2017~)
 
+`#api`
+
+archeage-go는 Project Arche에서 사용되는 핵심 기능을 별도의 package로 분리한 것입니다. 아키에이지 공식 홈페이지에서 얻을 수 있는 모든 정보를 API로 구현하려고 했으나 게임을 접으면서 미뤄두었습니다. 현재 경매장 검색, 캐릭터 검색, 공지사항 가져오기, 서버 상태 조회하기 등의 기능을 지원합니다.
+
 ### [archeage-discord-bot](https://github.com/geeksbaek/archeage-discord-bot) (2017~)
 
+`#discord` `#bot`
+
+archeage-discord-bot은 [archeage-go](https://github.com/geeksbaek/archeage-go) 패키지를 사용한 discord bot입니다.
+
 ## [go-arp-spoofer](https://github.com/geeksbaek/go-arp-spoofer) (2016)
+
+`#network` `#security` `#hack` `#tool`
+
+go-arp-spoofer는 학교에서 프로젝트를 진행하여 개발한 프로그램입니다. 로컬 내에 있는 모든 호스트에게 arp 공격을 수행합니다.
+
+다른 arp 스푸핑 프로그램과 조금 다른 점은 동시에 복수의 사용자를 공격할 수 있는 것에 더하여, 동시에 복수의 네트워크 인터페이스를 통한 공격도 지원한다는 것입니다.
 
 ## [Joongbu Web App](https://github.com/joongbu-capstone-2016-team-01) (2016~2017)
 
