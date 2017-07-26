@@ -64,11 +64,13 @@ Project Arche는 아키에이지라는 MMORPG에 대한 프로젝트입니다. 2
 
 archeage-go는 Project Arche에서 사용되는 핵심 기능을 별도로 분리한 Go 패키지입니다. 아키에이지 공식 홈페이지에서 얻을 수 있는 모든 정보를 API로 구현하려고 했으나 게임을 접으면서 미뤄둔 상태이며 현재 경매장 검색, 캐릭터 검색, 공지사항 가져오기, 서버 상태 조회하기 등의 기능을 지원합니다.
 
-### [archeage-discord-bot](https://github.com/geeksbaek/archeage-discord-bot) (2017~)
+### [archeage-discord-bot](https://github.com/geeksbaek/archeage-discord-bot) (2017)
 
 `#discord` `#bot`
 
-archeage-discord-bot은 [archeage-go](https://github.com/geeksbaek/archeage-go) 패키지를 사용한 discord bot입니다.
+archeage-discord-bot은 [archeage-go](https://github.com/geeksbaek/archeage-go) 패키지와 [discordgo](https://github.com/bwmarrin/discordgo)라는 써드파티 API 패키지를 사용해 만든 discord bot입니다. [discord](https://discordapp.com/)라는 채팅 프로그램에 연결해서 사용할 수 있습니다.
+
+[archeage-go](https://github.com/geeksbaek/archeage-go) 패키지의 기능을 discord에서 사용하기 위해 개발했으나, 현재는 아키에이지를 플레이하지 않게 되어 관리를 잠정 중단한 상태입니다.
 
 ## [go-arp-spoofer](https://github.com/geeksbaek/go-arp-spoofer) (2016)
 
