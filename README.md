@@ -64,25 +64,29 @@ archeage-discord-bot은 [archeage-go](https://github.com/geeksbaek/archeage-go) 
 
 go-arp-spoofer는 학교에서 프로젝트 시간에 개발한 프로그램입니다. 로컬 내에 있는 모든 호스트에게 arp 공격을 수행합니다. 후배 한 명을 포함하며 2명이 개발하였습니다. 저는 arp 스푸핑을 구현하였고 후배는 스푸핑한 패킷에서 ID와 패스워드를 파싱하는 코드를 작성하였습니다.
 
-패킷 캡쳐를 위해 C에서는 pcap, C++에서는 libtins와 같은 라이브러리를 사용하는데, Go에서는 gopakcet이라는 라이브러리를 사용합니다. 프로젝트에서 사용되는 언어에 제약이 없었기 때문에 손에 가장 편했던 Go로 프로젝트를 진행했습니다.
+패킷 캡쳐를 위해 보통 C의 libpcap, C++의 libtins와 같은 라이브러리를 사용하는데, 프로젝트에서 사용되는 언어에 제약이 없었고 Go가 손에 더 익숙했으므로 Go의 [GoPacket](https://github.com/google/gopacket)이라는 라이브러리를 사용해서 개발했습니다.
 
 시연을 위해서, 파싱된 ID와 패스워드가 일부 가려진 채로 웹 페이지에 실시간으로 보이는 기능이 있습니다. 다른 arp 스푸핑 프로그램과 조금 다른 점은 동시에 복수의 사용자를 공격할 수 있는 것에 더하여, 동시에 복수의 네트워크 인터페이스를 통한 공격도 지원한다는 것입니다.
 
 ## [Joongbu Web App](https://github.com/joongbu-capstone-2016-team-01) (2016~2017)
 
-`#web` `#polymer` `#rest_api` `#open_data`
+`#web` `#polymer` `#rest_api` `#open_data` `#google_app_engine`
 
 Joongbu Web App은 학교에서 프로젝트 겸 졸업작품으로 개발한 웹 앱입니다.
 
-자세한 설명은 [**여기**](https://1drv.ms/w/s!AqKUZ6w7Dq91tHxH3yUTfBusRGWY)에 있고, 웹 앱은 [**여기**](https://joongbu-web-app.firebaseapp.com)에서 구경하실 수 있습니다.
+자세한 설명은 별도의 [문서](https://1drv.ms/w/s!AqKUZ6w7Dq91tHxH3yUTfBusRGWY)에서 확인하실 수 있고, 웹 앱은 [**여기**](https://joongbu-web-app.firebaseapp.com)에서 구경하실 수 있습니다.
 
 ## [goinside](https://github.com/geeksbaek/goinside) (2016~)
 
 `#web` `#api`
 
-goinside는 디시인사이드라는 웹사이트에서의 행동을 구현한 Go 패키지입니다. 현재는 동작하지 않습니다.
+goinside는 디시인사이드라는 웹사이트에서의 행동을 구현한 Go 패키지입니다. 현재는 [이슈](https://github.com/geeksbaek/goinside/issues/7)가 있어 동작하지 않습니다.
 
-처음에는 실제 웹에서의 동작을 본따서 구현했습니다. 이후에 dcinside 모바일 어플리케이션에서 내부적으로 사용하는 REST API 서버가 있는 것을 확인했는데,
+사실 이 패키지는 아래에서 설명해 드릴 [goinside-gallog-cleaner](https://github.com/geeksbaek/goinside-gallog-cleaner)라는 프로그램을 만들면서 프로그램이 점점 커지자 아예 API 패키지를 따로 만드는 게 낫겠다 싶어 작성한 패키지입니다. 대부분의 행동을 구현했으며 [godoc](https://godoc.org/github.com/geeksbaek/goinside)에 자세하게 설명되어 있습니다.
+
+처음에는 실제 디시인사이드 웹사이트의 요청 방식을 모방하여 API를 구현했습니다. 이 방식은 웹사이트 구조가 바뀌면 그때마다 다시 웹사이트를 다시 분석하여 코드를 수정해야 하는 문제가 있습니다. 웹사이트 구조가 바뀌는 일은 비일비재하므로 그다지 좋은 방법은 아니었습니다.
+
+이후에 디시인사이드 어플리케이션에서 별도의 디시인사이드 [내부 REST API](https://github.com/geeksbaek/goinside/blob/master/request.go#L58) 서버와 통신하는 것을 발견했고, 패킷 분석 및 어플리케이션 디컴파일을 통해 내부 API를 분석하여 goinside도 디시인사이드 내부 API를 사용하도록 코드를 수정했습니다. 코드를 개선하면서 효율이 상당히 개선되어 이 패키지로 개발한 프로그램들의 전반적인 퍼포먼스가 향상되었습니다.
 
 ### [goinside-image-crawler](https://github.com/geeksbaek/goinside-image-crawler) (2016)
 
