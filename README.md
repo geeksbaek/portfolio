@@ -1,5 +1,3 @@
-# Portfolio
-
 <!-- TOC -->
 ## Table of Contents
 
