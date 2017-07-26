@@ -1,6 +1,7 @@
 # Portfolio
 
 <!-- TOC -->
+## Table of Contents
 
 - [ourChess (2012)](https://github.com/geeksbaek/portfolio#ourchess-2012)
 - [UnlimitedImageCombiner (2012)](https://github.com/geeksbaek/portfolio#unlimitedimagecombiner-2012)
