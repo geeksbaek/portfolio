@@ -44,13 +44,13 @@ Project Arche는 아키에이지라는 MMORPG에 대한 프로젝트입니다. 2
 
 지금은 discord의 webhook와 연동하여 공지사항 알리미 같은 서비스를 구현하고 있습니다.
 
-※github에 남아있는 코드는 웹 앱 개발 중 취소된 버전의 코드이며, REST API로 구현된 현재 서버의 코드는 OAuth 2.0에 사용되는 클라이언트 ID, 비밀키 등이 포함돼있어 공개하고 있지 않습니다.
+※ github에 남아있는 코드는 웹 앱 개발 중 취소된 버전의 코드이며, REST API로 구현된 현재 서버의 코드는 OAuth 2.0에 사용되는 클라이언트 ID, 비밀키 등이 포함돼있어 공개하고 있지 않습니다.
 
 ### [archeage-go](https://github.com/geeksbaek/archeage-go) (2017~)
 
 `#api`
 
-archeage-go는 Project Arche에서 사용되는 핵심 기능을 별도의 package로 분리한 것입니다. 아키에이지 공식 홈페이지에서 얻을 수 있는 모든 정보를 API로 구현하려고 했으나 게임을 접으면서 미뤄두었습니다. 현재 경매장 검색, 캐릭터 검색, 공지사항 가져오기, 서버 상태 조회하기 등의 기능을 지원합니다.
+archeage-go는 Project Arche에서 사용되는 핵심 기능을 별도로 분리한 Go 패키지입니다. 아키에이지 공식 홈페이지에서 얻을 수 있는 모든 정보를 API로 구현하려고 했으나 게임을 접으면서 미뤄둔 상태이며 현재 경매장 검색, 캐릭터 검색, 공지사항 가져오기, 서버 상태 조회하기 등의 기능을 지원합니다.
 
 ### [archeage-discord-bot](https://github.com/geeksbaek/archeage-discord-bot) (2017~)
 
@@ -62,14 +62,42 @@ archeage-discord-bot은 [archeage-go](https://github.com/geeksbaek/archeage-go) 
 
 `#network` `#security` `#hack` `#tool`
 
-go-arp-spoofer는 학교에서 프로젝트 시간에 개발한 프로그램입니다. 로컬 내에 있는 모든 호스트에게 arp 공격을 수행합니다. 후배 한 명을 포함하며 2명이 개발하였습니다. 저는 arp 스푸핑을 구현하였고 후배는 스푸핑한 패킷에서 ID와 패스워드를 파싱하는 코드를 작성하였습니다. 
+go-arp-spoofer는 학교에서 프로젝트 시간에 개발한 프로그램입니다. 로컬 내에 있는 모든 호스트에게 arp 공격을 수행합니다. 후배 한 명을 포함하며 2명이 개발하였습니다. 저는 arp 스푸핑을 구현하였고 후배는 스푸핑한 패킷에서 ID와 패스워드를 파싱하는 코드를 작성하였습니다.
+
+패킷 캡쳐를 위해 C에서는 pcap, C++에서는 libtins와 같은 라이브러리를 사용하는데, Go에서는 gopakcet이라는 라이브러리를 사용합니다. 프로젝트에서 사용되는 언어에 제약이 없었기 때문에 손에 가장 편했던 Go로 프로젝트를 진행했습니다.
 
 시연을 위해서, 파싱된 ID와 패스워드가 일부 가려진 채로 웹 페이지에 실시간으로 보이는 기능이 있습니다. 다른 arp 스푸핑 프로그램과 조금 다른 점은 동시에 복수의 사용자를 공격할 수 있는 것에 더하여, 동시에 복수의 네트워크 인터페이스를 통한 공격도 지원한다는 것입니다.
 
 ## [Joongbu Web App](https://github.com/joongbu-capstone-2016-team-01) (2016~2017)
 
+`#web` `#polymer` `#rest_api` `#open_data`
+
+Joongbu Web App은 학교에서 프로젝트 겸 졸업작품으로 개발한 웹 앱입니다.
+
+자세한 설명은 [**여기**](https://1drv.ms/w/s!AqKUZ6w7Dq91tHxH3yUTfBusRGWY)에 있고, 웹 앱은 [**여기**](https://joongbu-web-app.firebaseapp.com)에서 구경하실 수 있습니다.
+
 ## [goinside](https://github.com/geeksbaek/goinside) (2016~)
+
+`#web` `#api`
+
+goinside는 디시인사이드라는 웹사이트에서의 행동을 구현한 Go 패키지입니다. 현재는 동작하지 않습니다.
+
+처음에는 실제 웹에서의 동작을 본따서 구현했습니다. 이후에 dcinside 모바일 어플리케이션에서 내부적으로 사용하는 REST API 서버가 있는 것을 확인했는데,
 
 ### [goinside-image-crawler](https://github.com/geeksbaek/goinside-image-crawler) (2016)
 
+`#bot`
+
+goinside-image-crawler는 디시인사이드에 게시되는 글에서 이미지를 수집하는 프로그램입니다. goinside로 개발한 첫 번째 프로그램이며, 요청에 의해 개발하여 무료로 배포한 프로그램입니다.
+
+Go의 동시성을 활용하여 빠른 속도로 여러 개의 이미지를 다운로드 하는 것이 특징입니다. 중복된 이미지는 건너뛰는 기능이 있습니다.
+
 ### [goinside-gallog-cleaner](https://github.com/geeksbaek/goinside-gallog-cleaner) (2016)
+
+`#bot`
+
+goinside-gallog-cleaner는 일명 디시 클리너라고 불리는 프로그램입니다. goinside로 개발한 두 번째 프로그램으로, 디시인사이드에 회원으로 작성한 모든 글과 댓글을 삭제해줍니다.
+
+디시인사이드에는 자신의 글을 일괄 삭제하는 기능이 없었기 때문에 오랜 기간 작성한 글을 하나씩 지우기 힘들어서 이런 작업을 대신 해주는 프로그램이 필요합니다. 오래전에는 무료로 배포되는 프로그램이 있었으나, 최근에는 정상적으로 동작하는 프로그램을 거의 찾을 수 없어 직접 만들게 되었습니다.
+
+무료로 배포하였으며 누적 다운로드 수가 1만 4천 번을 넘는 수준으로 제가 만든 프로그램 중 가장 인기 있던 프로그램입니다.
