@@ -94,7 +94,7 @@ Joongbu Web App은 학교에서 프로젝트 겸 졸업작품으로 개발한 �
 
 `#web` `#api`
 
-goinside는 디시인사이드라는 웹사이트에서의 행동을 구현한 Go 패키지입니다. 현재는 [이슈](https://github.com/geeksbaek/goinside/issues/7)가 있어 동작하지 않습니다.
+goinside는 디시인사이드라는 웹사이트에서의 행동을 구현한 Go 패키지입니다.
 
 사실 이 패키지는 아래에서 설명해 드릴 [goinside-gallog-cleaner](https://github.com/geeksbaek/goinside-gallog-cleaner)라는 프로그램을 만들면서 프로그램이 점점 커지자 아예 API 패키지를 따로 만드는 게 낫겠다 싶어 작성한 패키지입니다. 대부분의 행동을 구현했으며 [godoc](https://godoc.org/github.com/geeksbaek/goinside)에 자세하게 설명되어 있습니다.
 
