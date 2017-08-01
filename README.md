@@ -11,6 +11,7 @@
 - [goinside (2016~)](https://github.com/geeksbaek/portfolio#goinside-2016)
     - [goinside-image-crawler (2016)](https://github.com/geeksbaek/portfolio#goinside-image-crawler-2016)
     - [goinside-gallog-cleaner (2016)](https://github.com/geeksbaek/portfolio#goinside-gallog-cleaner-2016)
+- [Deprecated Projects](https://github.com/geeksbaek/portfolio#deprecated-projects)
 
 <!-- /TOC -->
 
@@ -137,3 +138,19 @@ goinside-gallog-cleaner는 일명 디시 클리너라고 불리는 프로그램�
 디시인사이드에는 자신의 글을 일괄 삭제하는 기능이 없었기 때문에 오랜 기간 작성한 글을 하나씩 지우기 힘들어서 이런 작업을 대신 해주는 프로그램이 필요합니다. 오래전에는 무료로 배포되는 프로그램이 있었으나, 최근에는 정상적으로 동작하는 프로그램을 거의 찾을 수 없어 직접 만들게 되었습니다.
 
 무료로 배포 중이며, 이 글을 작성하는 현재 누적 다운로드 수가 1만 4천 번을 넘는, 제 프로그램 중 가장 인기 있는 프로그램입니다.
+
+***
+
+## Deprecated Projects
+
+### [drawing-quiz](https://github.com/geeksbaek/drawing-quiz) (2016)
+
+Polymer를 사용하여 웹 기반 그림 퀴즈를 개발하다가 의욕 상실로 포기함.
+
+### [go-decrypt-dot11](https://github.com/geeksbaek/go-decrypt-dot11) (2016)
+
+학교 프로젝트로 802.11 packet을 실시간 복호화하는 프로그램을 개발하던 중 다른 일정에 치여 시간 부족으로 포기함.
+
+### [go-network-monitoring](https://github.com/geeksbaek/go-network-monitoring) (2016)
+
+학교 프로젝트로 실시간 네트워크 트래픽을 측정하는 프로그램을 개발했으나 중규모 이상 트래픽에서는 정상적인 측정이 어려울 정도로 퍼포먼스가 떨어지는 문제가 있음.
