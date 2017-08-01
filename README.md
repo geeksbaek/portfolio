@@ -130,7 +130,7 @@ Go의 동시성을 활용하여 빠른 속도로 여러 개의 이미지를 다�
 
 `#bot`
 
-<img src="https://github.com/geeksbaek/goinside-gallog-cleaner/blob/master/guide.gif?raw=true" width="500">
+<img src="http://i.imgur.com/BnMQy0V.gif" width="700">
 
 goinside-gallog-cleaner는 일명 디시 클리너라고 불리는 프로그램입니다. goinside로 개발한 두 번째 프로그램으로, 디시인사이드에 회원으로 작성한 모든 글과 댓글을 삭제해줍니다.
 
