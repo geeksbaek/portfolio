@@ -14,9 +14,13 @@
 
 <!-- /TOC -->
 
+***
+
 ## [ourChess](https://github.com/geeksbaek/ourChess) (2012)
 
 `#game` `#web` `#websocket` `#html5` `#canvas` `#nodejs` `#spa`
+
+<img src="http://i.imgur.com/zqpfsa5.gif" width="400">
 
 ourChess는 온라인 1:1 체스게임입니다. 대학교 1학년을 마친 뒤 군 휴학 중에 개발했습니다. ourChess는 제가 만든 첫 어플리케이션이기도 합니다. node.js로 구동되는 SPA이며 지금도 heroku에서 무료 할당량을 받아 서비스되고 있습니다.
 
@@ -24,19 +28,25 @@ ourChess는 온라인 1:1 체스게임입니다. 대학교 1학년을 마친 뒤
 
 처음에는 마우스 이동 이벤트가 발생할 때마다 모든 사람에게 마우스 좌표를 Websocket으로 브로드캐스팅하여 각각의 클라이언트에서 캔버스를 새로 그리게끔 하여 실시간 움직임을 구현하였습니다. 그러나 이 방법은 크게 비효율적이었습니다. 고민 끝에 하나의 Canvas에서 모든 작업을 하던 방법 대신, 체스 보드를 그리는 Canvas와 움직이는 기물을 그리는 Canvas를 분리하는 것 문제를 해결했습니다. 움직이는 기물을 그리는 Canvas는 좌표가 변경될 때마다 매번 새로 그리는 대신 Canvas의 CSS position을 변경하는 방법으로 자연스러운 움직임을 보여줄 수 있었습니다.
 
-[**여기**](https://ourchess.herokuapp.com/)에서 플레이해보실 수 있습니다. 방을 생성한 사용자가 해당 방의 URL을 공유하여 게임 상대를 초대할 수 있습니다. 방을 생성한 사람이 White를 잡고, 두 번째로 입장한 사람이 Black을 잡습니다. 이후에 입장한 사람들은 자동으로 관전자가 됩니다.
+[**여기**](https://ourchess.herokuapp.com/)에서 플레이해보실 수 있습니다. 방을 생성한 사용자가 해당 방의 URL을 공유하여 게임 상대를 초대할 수 있습니다. 방을 생성한 사람이 White를 잡고, 두 번째로 입장한 사람이 Black을 잡습니다. 이후에 입장한 사람들은 자동으로 관전자가 됩니다. 사이드에는 게임 메시지 수신 및 채팅을 할 수 있는 공간이 있습니다.
+
+***
 
 ## [UnlimitedImageCombiner](https://github.com/geeksbaek/UnlimitedImageCombiner) (2012)
 
 `#tool` `#web` `#html5` `#canvas` `#spa`
 
+<img src="http://i.imgur.com/qUFxxam.gif" width="400">
+
 UnlimitedImageCombiner는 브라우저에서 이미지를 손쉽게 합칠 수 있도록 도와주는 도구입니다. 
 
 예전에는 인터넷에 글을 작성할 때, 첨부할 수 있는 이미지 파일 개수에 제한이 있는 경우가 많았습니다. 그래서 여러 장의 이미지를 하나로 합치는 프로그램을 자주 사용했는데, 개인적으로 불편한 점이 몇 가지 있었습니다. 윈도우용 앱은 설치의 번거로움과 악성 프로그램일지 모른다는 위험이 있었고, [기존 웹 앱](http://bbom.org/tools/)의 경우는 이미지를 서버로 전송하여 합친 뒤 결과물을 다시 돌려주는 방식이었기 때문에 속도도 느리고 인터넷 연결이 필요하다는 단점이 있었습니다.
 
-프로그램을 설치할 필요가 없는 웹 앱의 장점을 살리면서도 사용하기 쉬운 새로운 앱의 만들어보고 싶어서 브라우저에서 지원하는 웹 기술만을 써서 만들었습니다. 서버로 이미지를 전송하지 않으므로 매우 빠른 속도로 합칠 수 있습니다.
+프로그램을 설치할 필요가 없는 웹 앱의 장점을 살리면서도 사용하기 쉬운 새로운 앱의 만들어보고 싶어서 브라우저에서 지원하는 웹 기술만을 써서 만들었습니다. 서버로 이미지를 전송하지 않으므로 매우 빠른 속도로 합칠 수 있습니다. 드래그 앤 드롭 API를 사용하여 합치기 전에 이미지 순서를 간편하게 바꿀 수 있으며, 이미지의 폭을 설정하는 것도 쉽게 가능합니다.
 
 github pages로 서비스 중이며 [**여기**](https://geeksbaek.github.io/UnlimitedImageCombiner/)에서 사용해 보실 수 있습니다.
+
+***
 
 ## [Project Arche](https://github.com/geeksbaek/Project-Arche) (2014~)
 
@@ -72,6 +82,8 @@ archeage-discord-bot은 [archeage-go](https://github.com/geeksbaek/archeage-go) 
 
 [archeage-go](https://github.com/geeksbaek/archeage-go) 패키지의 기능을 discord에서 사용하기 위해 개발했으나, 현재는 아키에이지를 플레이하지 않게 되어 관리를 잠정 중단한 상태입니다.
 
+***
+
 ## [go-arp-spoofer](https://github.com/geeksbaek/go-arp-spoofer) (2016)
 
 `#network` `#security` `#hack` `#tool`
@@ -82,6 +94,8 @@ go-arp-spoofer는 학교에서 프로젝트 시간에 개발한 프로그램입�
 
 시연을 위해서, 파싱된 ID와 패스워드가 일부 가려진 채로 웹 페이지에 실시간으로 보이는 기능이 있습니다. 다른 arp 스푸핑 프로그램과 조금 다른 점은 동시에 복수의 사용자를 공격할 수 있는 것에 더하여, 동시에 복수의 네트워크 인터페이스를 통한 공격도 지원한다는 것입니다.
 
+***
+
 ## [Joongbu Web App](https://github.com/joongbu-capstone-2016-team-01) (2016~2017)
 
 `#web` `#polymer` `#rest_api` `#open_data` `#google_app_engine`
@@ -89,6 +103,8 @@ go-arp-spoofer는 학교에서 프로젝트 시간에 개발한 프로그램입�
 Joongbu Web App은 학교에서 프로젝트 겸 졸업작품으로 개발한 웹 앱입니다.
 
 자세한 설명은 별도의 [문서](https://1drv.ms/w/s!AqKUZ6w7Dq91tHxH3yUTfBusRGWY)에서 확인하실 수 있고, 웹 앱은 [**여기**](https://joongbu-web-app.firebaseapp.com)에서 구경하실 수 있습니다.
+
+***
 
 ## [goinside](https://github.com/geeksbaek/goinside) (2016~)
 
@@ -114,8 +130,10 @@ Go의 동시성을 활용하여 빠른 속도로 여러 개의 이미지를 다�
 
 `#bot`
 
+<img src="https://github.com/geeksbaek/goinside-gallog-cleaner/blob/master/guide.gif?raw=true" width="500">
+
 goinside-gallog-cleaner는 일명 디시 클리너라고 불리는 프로그램입니다. goinside로 개발한 두 번째 프로그램으로, 디시인사이드에 회원으로 작성한 모든 글과 댓글을 삭제해줍니다.
 
 디시인사이드에는 자신의 글을 일괄 삭제하는 기능이 없었기 때문에 오랜 기간 작성한 글을 하나씩 지우기 힘들어서 이런 작업을 대신 해주는 프로그램이 필요합니다. 오래전에는 무료로 배포되는 프로그램이 있었으나, 최근에는 정상적으로 동작하는 프로그램을 거의 찾을 수 없어 직접 만들게 되었습니다.
 
-무료로 배포하였으며 누적 다운로드 수가 1만 4천 번을 넘는 수준으로 제가 만든 프로그램 중 가장 인기 있던 프로그램입니다.
+무료로 배포 중이며, 이 글을 작성하는 현재 누적 다운로드 수가 1만 4천 번을 넘는, 제 프로그램 중 가장 인기 있는 프로그램입니다.
