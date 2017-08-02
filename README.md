@@ -29,6 +29,8 @@ ourChess는 온라인 1:1 체스게임입니다. 대학교 1학년을 마친 뒤
 
 처음에는 마우스 이동 이벤트가 발생할 때마다 모든 사람에게 마우스 좌표를 Websocket으로 브로드캐스팅하여 각각의 클라이언트에서 캔버스를 새로 그리게끔 하여 실시간 움직임을 구현하였습니다. 그러나 이 방법은 크게 비효율적이었습니다. 고민 끝에 하나의 Canvas에서 모든 작업을 하던 방법 대신, 체스 보드를 그리는 Canvas와 움직이는 기물을 그리는 Canvas를 분리하는 것 문제를 해결했습니다. 움직이는 기물을 그리는 Canvas는 좌표가 변경될 때마다 매번 새로 그리는 대신 Canvas의 CSS position을 변경하는 방법으로 자연스러운 움직임을 보여줄 수 있었습니다.
 
+개발에서 시간이 가장 많이 들어간 부분은 기물의 움직임이 체스의 룰을 위반하는 지 검사하는 [부분](https://github.com/geeksbaek/ourChess/blob/heroku/public/js/checkAvailability.js)이었습니다. [Stalemate](https://en.wikipedia.org/wiki/Stalemate), [Threefold repetition](https://en.wikipedia.org/wiki/Threefold_repetition), [Promotion](https://en.wikipedia.org/wiki/Promotion_(chess)) 등 대부분의 체스 규칙을 검사하며, 규칙에 위반되는 움직임은 허용되지 않도록 하였습니다.
+
 [**여기**](https://ourchess.herokuapp.com/)에서 플레이해보실 수 있습니다. 방을 생성한 사용자가 해당 방의 URL을 공유하여 게임 상대를 초대할 수 있습니다. 방을 생성한 사람이 White를 잡고, 두 번째로 입장한 사람이 Black을 잡습니다. 이후에 입장한 사람들은 자동으로 관전자가 됩니다. 사이드에는 게임 메시지 수신 및 채팅을 할 수 있는 공간이 있습니다.
 
 ***
@@ -39,11 +41,13 @@ ourChess는 온라인 1:1 체스게임입니다. 대학교 1학년을 마친 뒤
 
 <img src="http://i.imgur.com/qUFxxam.gif" width="400">
 
-UnlimitedImageCombiner는 브라우저에서 이미지를 손쉽게 합칠 수 있도록 도와주는 도구입니다. 
+UnlimitedImageCombiner는 브라우저에서 이미지를 손쉽게 합칠 수 있도록 도와주는 도구입니다. 여러 개의 이미지를 하나의 Canvas에 그려서 합치는 방식입니다.
 
 예전에는 인터넷에 글을 작성할 때, 첨부할 수 있는 이미지 파일 개수에 제한이 있는 경우가 많았습니다. 그래서 여러 장의 이미지를 하나로 합치는 프로그램을 자주 사용했는데, 개인적으로 불편한 점이 몇 가지 있었습니다. 윈도우용 앱은 설치의 번거로움과 악성 프로그램일지 모른다는 위험이 있었고, [기존 웹 앱](http://bbom.org/tools/)의 경우는 이미지를 서버로 전송하여 합친 뒤 결과물을 다시 돌려주는 방식이었기 때문에 속도도 느리고 인터넷 연결이 필요하다는 단점이 있었습니다.
 
 프로그램을 설치할 필요가 없는 웹 앱의 장점을 살리면서도 사용하기 쉬운 새로운 앱의 만들어보고 싶어서 브라우저에서 지원하는 웹 기술만을 써서 만들었습니다. 서버로 이미지를 전송하지 않으므로 매우 빠른 속도로 합칠 수 있습니다. 드래그 앤 드롭 API를 사용하여 합치기 전에 이미지 순서를 간편하게 바꿀 수 있으며, 이미지의 폭을 설정하는 것도 쉽게 가능합니다.
+
+Unlimited라는 이름답게, 합칠 수 있는 이미지 개수에 제한이 없습니다. 다만 브라우저마다 지원하는 Canvas의 [최대 크기 제한](https://stackoverflow.com/a/11585939)이 있는데, 이 크기를 초과하면 두 개 이상의 Canvas로 분리하여 합치도록 하였습니다.
 
 github pages로 서비스 중이며 [**여기**](https://geeksbaek.github.io/UnlimitedImageCombiner/)에서 사용해 보실 수 있습니다.
 
