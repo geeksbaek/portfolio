@@ -19,19 +19,18 @@
 
 ## [ourChess](https://github.com/geeksbaek/ourChess) (2012)
 
-`#game` `#web` `#websocket` `#html5` `#canvas` `#nodejs` `#spa`
-
 <img src="http://i.imgur.com/zqpfsa5.gif" width="400">
 
-ourChess는 온라인 1:1 체스게임입니다. 대학교 1학년을 마친 뒤 군 휴학 중에 개발했습니다. ourChess는 제가 만든 첫 어플리케이션이기도 합니다. node.js로 구동되는 SPA이며 지금도 heroku에서 무료 할당량을 받아 서비스되고 있습니다.
+ourChess는 웹 기반으로 개발된 1:1 체스게임입니다. backend는 [node.js](https://nodejs.org/), frontend는 Javascript와 약간의 [jQuery](https://jquery.com/)를 사용하여 개발했으며, 그래픽은 HTML5 Canvas API로 2D 이미지를 그려 구현하였습니다. UI는 [bootstrap](http://getbootstrap.com/)을 사용하여 구성하였으며, 사용자들은 [socket.io](https://socket.io/)의 websocket으로 서로 실시간으로 통신합니다. 현재 [heroku](https://www.heroku.com/)에서 무료 할당량을 받아 서비스 중입니다.
 
-온라인 멀티플레이어 체스 게임을 만들기로 한 뒤, 제가 가장 중요하게 생각한 목표는 "비록 컴퓨터로 두는 체스지만, 진짜 사람과 두는 기분을 들게 하자" 였습니다. 어떻게 해야 그런 기분을 들게 할 수 있을지 고민한 끝에, 상대가 기물을 들고 움직이는 모습을 실시간으로 보여주면 좋을 것 같았습니다. 이 아이디어를 실현하기 위해 많은 시행착오를 거치고 나서 Canvas API가 가장 적합하다고 판단해 이 기술을 사용하게 되었습니다.
+이 체스게임의 주요 특징은 플레이어가 기물을 움직이는 모습을 다른 플레이어들이 실시간으로 볼 수 있다는 것입니다. 이를 자연스럽게 구현하기 위해 크게 두 가지 테크닉을 사용했습니다.
 
-처음에는 마우스 이동 이벤트가 발생할 때마다 모든 사람에게 마우스 좌표를 Websocket으로 브로드캐스팅하여 각각의 클라이언트에서 캔버스를 새로 그리게끔 하여 실시간 움직임을 구현하였습니다. 그러나 이 방법은 크게 비효율적이었습니다. 고민 끝에 하나의 Canvas에서 모든 작업을 하던 방법 대신, 체스 보드를 그리는 Canvas와 움직이는 기물을 그리는 Canvas를 분리하는 것 문제를 해결했습니다. 움직이는 기물을 그리는 Canvas는 좌표가 변경될 때마다 매번 새로 그리는 대신 Canvas의 CSS position을 변경하는 방법으로 자연스러운 움직임을 보여줄 수 있었습니다.
+- 첫째, 체스판 위에서 기물을 드래그하는 동안 마우스 좌표를 실시간으로 websocket을 통해 브로드캐스트합니다. 구체적으로는 초당 최대 60번까지 브로드캐스트합니다. 드래그 중에 발생하는 mousemove 이벤트는 초당 60번을 초과하여 발생할 수 있으므로, mousemove 이벤트 리스너를 사용하는 대신 setInterval 함수를 동적으로 생성하고 파괴하는 방법을 사용합니다.
+- 둘째, 좌표를 브로드캐스트 받은 클라이언트들은 기물이 움직이는 것을 구현하기 위해 Canvas를 다시 그려야 합니다. 이때, 체스 보드가 그려져 있는 메인 Canvas를 다시 그리는 대신 별도의 Canvas를 생성하여 이곳에 움직일 기물을 그린 뒤, CSS Position을 변경하여 움직이도록 합니다. Canvas를 초당 60번씩이나 다시 그리는 것은 비효율적일뿐더러 그래픽 또한 부자연스럽게 보이기 때문에 이 트릭을 사용하였습니다.
 
-개발에서 시간이 가장 많이 들어간 부분은 기물의 움직임이 체스의 룰을 위반하는 지 검사하는 [부분](https://github.com/geeksbaek/ourChess/blob/heroku/public/js/checkAvailability.js)이었습니다. [Stalemate](https://en.wikipedia.org/wiki/Stalemate), [Threefold repetition](https://en.wikipedia.org/wiki/Threefold_repetition), [Promotion](https://en.wikipedia.org/wiki/Promotion_(chess)) 등 대부분의 체스 규칙을 검사하며, 규칙에 위반되는 움직임은 허용되지 않도록 하였습니다.
+개발에서 시간이 가장 많이 들어간 부분은 기물의 움직임이 체스의 규칙을 위반하는지 검사하는 [부분](https://github.com/geeksbaek/ourChess/blob/heroku/public/js/checkAvailability.js)이었습니다. [Stalemate](https://en.wikipedia.org/wiki/Stalemate), [Threefold repetition](https://en.wikipedia.org/wiki/Threefold_repetition), [Promotion](https://en.wikipedia.org/wiki/Promotion_(chess)) 등 대부분의 체스 규칙을 검사하며, 규칙에 위반되는 움직임은 허용되지 않도록 하였습니다.
 
-[**여기**](https://ourchess.herokuapp.com/)에서 플레이해보실 수 있습니다. 방을 생성한 사용자가 해당 방의 URL을 공유하여 게임 상대를 초대할 수 있습니다. 방을 생성한 사람이 White를 잡고, 두 번째로 입장한 사람이 Black을 잡습니다. 이후에 입장한 사람들은 자동으로 관전자가 됩니다. 사이드에는 게임 메시지 수신 및 채팅을 할 수 있는 공간이 있습니다.
+[여기](https://ourchess.herokuapp.com/)에서 플레이해보실 수 있습니다. 방을 생성하면 고유 URL을 할당받는데, 이 URL을 공유하여 다른 사용자가 입장하면 자동으로 게임이 시작됩니다. 방을 생성한 사람이 White를 잡고, 다음으로 입장한 사람이 Black을 잡습니다. 이후에 입장한 사람들은 관전자가 됩니다. 체스 보드 옆에는 게임 메시지 수신 및 채팅을 할 수 있는 공간이 있습니다.
 
 ***
 
