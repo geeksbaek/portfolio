@@ -36,19 +36,13 @@ ourChess는 웹 기반으로 개발된 1:1 체스게임입니다. backend는 [no
 
 ## [UnlimitedImageCombiner](https://github.com/geeksbaek/UnlimitedImageCombiner) (2012)
 
-`#tool` `#web` `#html5` `#canvas` `#spa`
-
 <img src="http://i.imgur.com/qUFxxam.gif" width="400">
 
-UnlimitedImageCombiner는 브라우저에서 이미지를 손쉽게 합칠 수 있도록 도와주는 도구입니다. 여러 개의 이미지를 하나의 Canvas에 그려서 합치는 방식입니다.
+UnlimitedImageCombiner는 웹 브라우저에서 여러 개의 이미지를 하나의 이미지로 합쳐주는 도구입니다. 서버 로직없이 정적 페이지로만 구성된 간단한 어플리케이션입니다. [bootstrap](http://getbootstrap.com/)으로 UI를 구성했으며, HTML5 Canvas API로 이미지를 그려 합치며, Drag and Drop API를 통해 이미지를 드래그하여 순서를 바꿀 수 있습니다.
 
-예전에는 인터넷에 글을 작성할 때, 첨부할 수 있는 이미지 파일 개수에 제한이 있는 경우가 많았습니다. 그래서 여러 장의 이미지를 하나로 합치는 프로그램을 자주 사용했는데, 개인적으로 불편한 점이 몇 가지 있었습니다. 윈도우용 앱은 설치의 번거로움과 악성 프로그램일지 모른다는 위험이 있었고, [기존 웹 앱](http://bbom.org/tools/)의 경우는 이미지를 서버로 전송하여 합친 뒤 결과물을 다시 돌려주는 방식이었기 때문에 속도도 느리고 인터넷 연결이 필요하다는 단점이 있었습니다.
+서버를 통하지 않고 클라이언트 측 기술만을 사용하여 이미지를 합치기 때문에 속도가 빠르며 프라이버시 침해 우려가 없습니다. 또한, 합칠 수 있는 이미지 개수에 제한이 없습니다. 다만 브라우저마다 지원하는 Canvas의 [크기 제한](https://stackoverflow.com/a/11585939)이 있는데, 이 크기를 초과하는 경우에는 두 개 이상의 Canvas로 분리하여 합치도록 하였습니다.
 
-프로그램을 설치할 필요가 없는 웹 앱의 장점을 살리면서도 사용하기 쉬운 새로운 앱의 만들어보고 싶어서 브라우저에서 지원하는 웹 기술만을 써서 만들었습니다. 서버로 이미지를 전송하지 않으므로 매우 빠른 속도로 합칠 수 있습니다. 드래그 앤 드롭 API를 사용하여 합치기 전에 이미지 순서를 간편하게 바꿀 수 있으며, 이미지의 폭을 설정하는 것도 쉽게 가능합니다.
-
-Unlimited라는 이름답게, 합칠 수 있는 이미지 개수에 제한이 없습니다. 다만 브라우저마다 지원하는 Canvas의 [최대 크기 제한](https://stackoverflow.com/a/11585939)이 있는데, 이 크기를 초과하면 두 개 이상의 Canvas로 분리하여 합치도록 하였습니다.
-
-github pages로 서비스 중이며 [**여기**](https://geeksbaek.github.io/UnlimitedImageCombiner/)에서 사용해 보실 수 있습니다.
+GitHub Pages에서 서비스 중이며 [여기](https://geeksbaek.github.io/UnlimitedImageCombiner/)에서 사용해 보실 수 있습니다.
 
 ***
 
