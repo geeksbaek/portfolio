@@ -31,37 +31,43 @@
 
 ## [ourChess](https://github.com/geeksbaek/ourChess) (2012)
 
-<img src="http://i.imgur.com/zqpfsa5.gif" width="500">
-
 #### Summary
 
-ourChess는 웹 기반으로 개발된 1:1 체스게임입니다. backend는 [node.js](https://nodejs.org/), frontend는 Javascript와 약간의 [jQuery](https://jquery.com/)를 사용하여 개발했으며, HTML5 Canvas API로 2D 이미지를 그려 그래픽을 구현하였습니다. UI는 [Bootstrap](http://getbootstrap.com/)을 사용하여 구성하였으며, 사용자들은 [Socket.io](https://socket.io/)의 websocket으로 서로 실시간으로 통신합니다. 현재 [Heroku](https://www.heroku.com/)에서 서비스 중입니다.
+ourChess는 웹 기반으로 개발된 멀티플레이어 1:1 체스게임입니다. backend는 [node.js](https://nodejs.org/), frontend는 Javascript와 약간의 [jQuery](https://jquery.com/)를 사용하여 개발했으며, HTML5 Canvas API로 2D 이미지를 그려 그래픽을 구현하였습니다. UI는 [Bootstrap](http://getbootstrap.com/)을 사용하여 구성하였으며, 사용자들은 [Socket.io](https://socket.io/)의 websocket으로 서로 실시간으로 통신합니다. 현재 [Heroku](https://www.heroku.com/)에서 서비스 중입니다.
 
 #### Details
 
-이 체스게임의 주요 특징은 플레이어가 기물을 움직이는 모습을 다른 플레이어들이 실시간으로 볼 수 있다는 것입니다. 이를 자연스럽게 구현하기 위해 크게 두 가지 테크닉을 사용했습니다.
+멀티플레이어 게임이므로, 사용자들은 각자 방을 생성하여 동시에 게임을 플레이할 수 있습니다. socket.io가 서버에 연결된 소켓들을 네임스페이스로 구분하는 기능을 지원하는 덕분에 방을 쉽게 구현할 수 있었습니다. 방을 생성하면 랜덤한 문자열이 생성되는데, 이 문자열을 네임스페이스로 사용하여 방을 구분짓습니다.
+
+그리고 반응형 UI로 개발되어 멀티스크린을 지원합니다. 해상도가 변경되면 가로화면인지 세로화면인지 판단해서 UI를 다르게 배치하게끔 하였으며, 모바일 유저와 데스크톱 유저가 같이 게임할 수 있습니다.
+
+<img src="http://i.imgur.com/XhWvXj2.png" width="150"> <img src="http://i.imgur.com/nV4x1hn.png" width="150"> <img src="http://i.imgur.com/M5uApvG.png" width="150">
+
+이 체스 게임의 주요 특징은 플레이어가 기물을 움직이는 모습을 다른 플레이어들이 실시간으로 볼 수 있다는 것입니다. 이를 자연스럽게 구현하기 위해 크게 두 가지 테크닉을 사용했습니다.
 
 - 첫째, 체스판 위에서 기물을 드래그하는 동안 마우스 좌표를 실시간으로 websocket을 통해 브로드캐스트합니다. 구체적으로는 초당 최대 60번까지 브로드캐스트합니다. 드래그 중에 발생하는 mousemove 이벤트는 초당 60번을 초과하여 발생할 수 있으므로, mousemove 이벤트 리스너를 사용하는 대신 setInterval 함수를 동적으로 생성하고 파괴하는 방법을 사용합니다.
 
 - 둘째, 좌표를 브로드캐스트 받은 클라이언트들은 기물이 움직이는 것을 구현하기 위해 Canvas를 다시 그려야 합니다. 이때, 체스 보드가 그려져 있는 메인 Canvas를 다시 그리는 대신 별도의 Canvas를 생성하여 이곳에 움직일 기물을 그린 뒤, CSS Position을 변경하여 움직이도록 합니다. Canvas를 초당 60번씩이나 다시 그리는 것은 비효율적일뿐더러 그래픽 또한 부자연스럽게 보이기 때문에 이 트릭을 사용하였습니다.
 
+<img src="http://i.imgur.com/zqpfsa5.gif" width="400">
+
 #### Story
 
 온라인 멀티플레이어 체스 게임을 만들기로 한 뒤, 제가 가장 중요하게 생각한 목표는 "비록 컴퓨터를 사이에 놓고 두는 체스지만, 진짜 사람과 두는 기분을 들게 하자" 였습니다. 어떻게 해야 그런 기분을 들게 할 수 있을지 고민한 끝에, 상대가 기물을 움직이는 모습을 실시간으로 보여주면 좋을 것 같았습니다. 이 아이디어를 실현하기 위해 많은 시행착오를 거치면서 기술을 개선한 끝에 만족스러운 결과를 얻게 되었습니다.
 
-개발에서 시간이 가장 많이 들어간 부분은 기물의 움직임이 체스의 규칙을 위반하는지 검사하는 [부분](https://github.com/geeksbaek/ourChess/blob/heroku/public/js/checkAvailability.js)이었습니다. [Stalemate](https://en.wikipedia.org/wiki/Stalemate), [Threefold repetition](https://en.wikipedia.org/wiki/Threefold_repetition), [Promotion](https://en.wikipedia.org/wiki/Promotion_(chess)) 등 대부분의 체스 규칙을 검사하며, 규칙에 위반되는 움직임은 허용되지 않도록 하였습니다.
+개발에서 시간이 가장 많이 들어간 부분은 기물의 움직임이 체스의 규칙을 위반하는지 검사하는 [부분](https://github.com/geeksbaek/ourChess/blob/heroku/public/js/checkAvailability.js)이었습니다. Stalemate, Threefold repetition, Promotion 등 대부분의 체스 규칙을 검사하며, 규칙에 위반되는 움직임은 허용되지 않도록 하였습니다. 사실 이 부분은 서버에서 검사해야 하지만, 개발 편의상 클라이언트에서 검사하게 했습니다. 만약 제대로 서비스해야 한다면 이러한 부분은 보완을 거쳐야 합니다.
 
-이 어플리케이션은 제가 처음으로 개발한 프로그램이어서 의미가 남다릅니다. 대학교 1학년을 마친 뒤 군 휴학 중에 한 달동안 집에 틀어박혀서 개발했는데, 질문을 하거나 조언을 구할 사람이 없었기 때문에 모든 것을 혼자서 찾아 배워야 했습니다. 이 과정 속에서 혼자서도 할 수 있다는 자신감을 얻었습니다.
+이 어플리케이션은 제가 처음으로 개발한 프로그램이어서 의미가 남다릅니다. 대학교 1학년을 마친 뒤 군 휴학 중에 한 달동안 집에 틀어박혀서 개발했는데, 질문을 하거나 조언을 구할 사람이 없었기 때문에 모든 것을 혼자서 찾아 배워야 했습니다. 이 과정 속에서 스스로 문제를 해결하는 능력을 기르고, 혼자서도 하나의 프로젝트를 완성할 수 있다는 자신감을 얻었습니다.
 
 #### Usage
 
-[여기](https://ourchess.herokuapp.com/)에서 플레이해보실 수 있습니다. 방을 생성하면 고유 URL을 할당받는데, 이 URL을 공유하여 다른 사용자가 입장하면 자동으로 게임이 시작됩니다. 방을 생성한 사람이 White를 잡고, 다음으로 입장한 사람이 Black을 잡습니다. 이후에 입장한 사람들은 관전자가 됩니다. 체스 보드 옆에는 게임 메시지 수신 및 채팅을 할 수 있는 공간이 있습니다.
+[여기](https://ourchess.herokuapp.com/)에서 직접 플레이해보실 수 있습니다.
 
 ***
 
 ## Project Arche (2014~)
 
-Project Arche는 두 가지 버전이 있습니다.
+Project Arche는 지속적으로 개발되고 있는 프로젝트입니다. 지금은 서비스가 중지된 웹 어플리케이션 버전과 현재 서비스되고 있는 REST API 서버 버전이 있습니다.
 
 ### [웹 어플리케이션 버전](https://github.com/geeksbaek/Project-Arche) (2014~2015)
 
