@@ -41,15 +41,19 @@ ourChess는 웹 기반으로 개발된 멀티플레이어 1:1 체스게임입니
 
 개발에서 중요하게 생각한 부분은 멀티스크린을 지원하는 것이었습니다. 제가 웹 기반 어플리케이션을 좋아하는 이유는 웹이 플랫폼으로서 주는 이점이 상당하기 때문입니다. 해상도가 변경되면 화면 방향을 계산한 뒤 UI를 재배치하여 모바일 환경에서도 자연스럽게 보이도록 하였습니다.
 
-<img src="http://i.imgur.com/XhWvXj2.png" width="170"> <img src="http://i.imgur.com/M5uApvG.png" width="170">
+<p align="center">
+  <img src="http://i.imgur.com/XhWvXj2.png" width="170"> <img src="http://i.imgur.com/M5uApvG.png" width="170">
+</p>
 
 이 체스 게임의 주요 특징은 플레이어가 기물을 움직이는 모습을 다른 플레이어들이 실시간으로 볼 수 있다는 것입니다. 이를 자연스럽게 구현하기 위해 크게 두 가지 테크닉을 사용했습니다.
 
-- 첫째, 체스판 위에서 기물을 드래그하는 동안 마우스 좌표를 실시간으로 websocket을 통해 브로드캐스트합니다. 구체적으로는 초당 최대 60번까지 브로드캐스트합니다. 드래그 중에 발생하는 mousemove 이벤트는 초당 60번을 초과하여 발생할 수 있으므로, mousemove 이벤트 리스너를 사용하는 대신 setInterval 함수를 동적으로 생성하고 파괴하는 방법을 사용합니다.
+첫째, 체스판 위에서 기물을 드래그하는 동안 마우스 좌표를 실시간으로 websocket을 통해 브로드캐스트합니다. 구체적으로는 초당 최대 60번까지 브로드캐스트합니다. 드래그 중에 발생하는 mousemove 이벤트는 초당 60번을 초과하여 발생할 수 있으므로, mousemove 이벤트 리스너를 사용하는 대신 setInterval 함수를 동적으로 생성하고 파괴하는 방법을 사용합니다.
 
-- 둘째, 좌표를 브로드캐스트 받은 클라이언트들은 기물이 움직이는 것을 구현하기 위해 Canvas를 다시 그려야 합니다. 이때, 체스 보드가 그려져 있는 메인 Canvas를 다시 그리는 대신 별도의 Canvas를 생성하여 이곳에 움직일 기물을 그린 뒤, CSS Position을 변경하여 움직이도록 합니다. Canvas를 초당 60번씩이나 다시 그리는 것은 비효율적일뿐더러 그래픽 또한 부자연스럽게 보이기 때문에 이 트릭을 사용하였습니다.
+둘째, 좌표를 브로드캐스트 받은 클라이언트들은 기물이 움직이는 것을 구현하기 위해 Canvas를 다시 그려야 합니다. 이때, 체스 보드가 그려져 있는 메인 Canvas를 다시 그리는 대신 별도의 Canvas를 생성하여 이곳에 움직일 기물을 그린 뒤, CSS Position을 변경하여 움직이도록 합니다. Canvas를 초당 60번씩이나 다시 그리는 것은 비효율적일뿐더러 그래픽 또한 부자연스럽게 보이기 때문에 이 트릭을 사용하였습니다.
 
-<img src="http://i.imgur.com/zqpfsa5.gif" width="400">
+<p align="center">
+  <img src="http://i.imgur.com/zqpfsa5.gif" width="400">
+</p>
 
 #### Story
 
@@ -71,7 +75,9 @@ Project Arche는 지속적으로 개발되고 있는 프로젝트입니다. 지�
 
 ### [웹 어플리케이션 버전](https://github.com/geeksbaek/Project-Arche) (2014~2015)
 
-<img src="http://i.imgur.com/hvVFxEz.gif" width="250"> <img src="http://i.imgur.com/YzLMsAp.gif"  width="250">
+<p align="center">
+  <img src="http://i.imgur.com/hvVFxEz.gif" width="250"> <img src="http://i.imgur.com/YzLMsAp.gif"  width="250">
+</p>
 
 #### Summary
 
