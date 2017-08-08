@@ -108,7 +108,7 @@ Frontend는 [Google Charts](https://developers.google.com/chart/) 라이브러�
 
 #### Summary
 
-REST API 버전의 Project Arche는 아키에이지 공식 홈페이지에서 제공하는 정보들을 JSON 포맷으로 파싱해주는 서비스입니다. 또한 [Discord](https://discordapp.com/)와 [Webhook](https://en.wikipedia.org/wiki/Webhook)으로 연동한 [아키에이지 알림 서비스](https://goo.gl/forms/AovCs0Au1C0TfcDB3)도 제공하고 있습니다. [Golang](https://golang.org/)으로 개발되어 현재 [Google App Engine](https://cloud.google.com/appengine/)에서 서비스되고 있습니다. [gorilla/mux](https://github.com/gorilla/mux) 라이브러리를 사용하여 각 요청을 라우팅합니다. Database는 [Google Cloud Datastore](https://cloud.google.com/datastore/)를 사용합니다.
+REST API 버전의 Project Arche는 아키에이지 공식 홈페이지에서 제공하는 정보들을 JSON 포맷으로 파싱해주는 서비스입니다. 또한 [Discord](https://discordapp.com/)와 [Webhook](https://en.wikipedia.org/wiki/Webhook)으로 연동한 [아키에이지 알림 서비스](https://goo.gl/forms/AovCs0Au1C0TfcDB3)도 제공하고 있습니다. Go로 개발되어 현재 [Google App Engine](https://cloud.google.com/appengine/)에서 서비스되고 있습니다. [gorilla/mux](https://github.com/gorilla/mux) 라이브러리를 사용하여 각 요청을 라우팅합니다. Database는 [Google Cloud Datastore](https://cloud.google.com/datastore/)를 사용합니다.
 
 ※ REST API 서버의 전체 소스는 인증에 사용되는 클라이언트 ID, 비밀키 등이 포함되어 있으므로 공개하지 않습니다.
 
