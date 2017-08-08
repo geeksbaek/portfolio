@@ -4,7 +4,7 @@
 
 ## Ability
 
-저는 아래 목록에 있는 기술들을 사용하여 프로젝트를 진행해 본 적이 있습니다. 자주 사용하는 순서대로 나열했습니다.
+아래 목록에 있는 기술들을 사용하여 하나 이상의 프로젝트를 진행해 본 적이 있으며, 자주 사용하는 순서대로 나열했습니다.
 
 - Language
   - Go
@@ -25,7 +25,7 @@
 ## Table of Contents
 
 - [ourChess (2012)](https://github.com/geeksbaek/portfolio#ourchess-2012)
-- [Project Arche (2014~)](https://github.com/geeksbaek/portfolio#project-arche-2014)
+- [Project Arche (2014~2017)](https://github.com/geeksbaek/portfolio#project-arche-2014)
 - [goinside (2016~)](https://github.com/geeksbaek/portfolio#goinside-2016)
 
 ## [ourChess](https://github.com/geeksbaek/ourChess) (2012)
@@ -171,7 +171,7 @@ goinside는 제가 지금까지 개발한 라이브러리 중에서 가장 규�
 
 이 작업이 무슨 의미가 있는 지 알 수 없으나, 이 API를 사용하기 위해선 이 방법을 따라야 했으므로 똑같이 구현하는 수 밖에 없었습니다. [이 부분](https://github.com/geeksbaek/goinside/blob/master/request.go#L32-L53)과 [이 부분](https://github.com/geeksbaek/goinside/blob/master/request.go#L129-L134)이 해당 작업을 Go로 구현한 부분입니다.
 
-그 외에 기본적인 기능들을 래핑하는 것은 어렵지 않았습니다. 다만, 갤로그에 대해서는 비공개 API가 존재하지 않았기 때문에 goinside/gallog 라는 이름의 서브 패키지에서 웹 파싱을 통해 기능을 [구현](https://github.com/geeksbaek/goinside/blob/master/gallog/gallog.go)했습니다.
+그 외에 기본적인 기능들을 래핑하는 것은 어렵지 않았습니다. 다만, 갤로그에 대해서는 비공개 API가 존재하지 않았기 때문에 [goinside/gallog](https://godoc.org/github.com/geeksbaek/goinside/gallog) 라는 이름의 서브 패키지에서 웹 파싱을 통해 기능을 [구현](https://github.com/geeksbaek/goinside/blob/master/gallog/gallog.go)했습니다.
 
 goinside/gallog 에는 [Session.FetchAll](https://godoc.org/github.com/geeksbaek/goinside/gallog#Session.FetchAll), [Session.DeleteAll](https://godoc.org/github.com/geeksbaek/goinside/gallog#Session.DeleteAll)과 같은 대량 HTTP 작업을 수행하는 함수가 있습니다. Go가 동시성을 잘 지원하는 덕분에 이런 대량 HTTP 작업들을 동시적으로 빠르게 처리하도록 [구현](https://github.com/geeksbaek/goinside/blob/master/gallog/gallog.go#L205-L249)할 수 있었습니다. 매 요청을 별도의 Goroutine에서 수행하도록 하여 비차단식으로 작동하며, 동시에 너무 많은 Gorountine이 생성되지 않도록 제한을 걸어두었습니다.
 
