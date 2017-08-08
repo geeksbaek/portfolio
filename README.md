@@ -46,7 +46,7 @@ ourChess는 웹 기반으로 개발된 멀티플레이어 1:1 체스게임입니
 
 이 체스 게임의 주요 특징은 플레이어가 기물을 움직이는 모습을 다른 플레이어들이 실시간으로 볼 수 있다는 것입니다. 이를 자연스럽게 구현하기 위해 크게 두 가지 테크닉을 사용했습니다.
 
-첫째, 체스판 위에서 기물을 드래그하는 동안 마우스 좌표를 실시간으로 websocket을 통해 브로드캐스트합니다. *(현재 [코드](https://github.com/geeksbaek/ourChess/blob/heroku/public/js/dragAndDrop.js#L2) 상에서는 mousemove 이벤트가 발생했을 때 좌표 브로드캐스트 하도록 되어있는데, 지금 생각해보니 mousemove 이벤트 대신 mousedown, mouseup 이벤트로 브로드캐스트 코드를 실행하는 setInterval 함수를 동적으로 생성 및 파괴하는 방식으로 구현하는 것이 더 나아 보입니다. mousemove 이벤트는 초당 60번을 초과할 수 있는데, 그렇게 자주 브로드캐스트 하는 것은 낭비라고 생각됩니다.)*
+첫째, 체스판 위에서 기물을 드래그하는 동안 마우스 좌표를 실시간으로 websocket을 통해 브로드캐스트합니다. (현재 [코드](https://github.com/geeksbaek/ourChess/blob/heroku/public/js/dragAndDrop.js#L2) 상에서는 mousemove 이벤트가 발생했을 때 좌표 브로드캐스트 하도록 되어있는데, 지금 생각해보니 mousemove 이벤트 대신 mousedown, mouseup 이벤트로 브로드캐스트 코드를 실행하는 setInterval 함수를 동적으로 생성 및 파괴하는 방식으로 구현하는 것이 더 나아 보입니다. mousemove 이벤트는 초당 60번을 초과할 수 있는데, 그렇게 자주 브로드캐스트 하는 것은 낭비라고 생각됩니다.)
 
 둘째, 좌표를 브로드캐스트 받은 클라이언트들은 기물이 움직이는 것을 구현하기 위해 Canvas를 다시 그려야 합니다. 이때, 체스 보드가 그려져 있는 메인 Canvas를 다시 그리는 대신 별도의 Canvas를 생성하여 이곳에 움직일 기물을 그린 뒤, CSS Position을 변경하여 움직이도록 합니다. Canvas를 초당 60번씩이나 다시 그리는 것은 비효율적일뿐더러 그래픽 또한 부자연스럽게 보이기 때문에 이 트릭을 사용하였습니다.
 
