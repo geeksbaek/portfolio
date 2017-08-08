@@ -72,7 +72,7 @@ ourChess는 웹 기반으로 개발된 멀티플레이어 1:1 체스게임입니
 
 Project Arche는 [아키에이지](http://archeage.xlgames.com/)라는 MMORPG 사용자들에게 도움을 주기 위해 개발한 어플리케이션입니다. 지금은 서비스가 중지된 웹 어플리케이션 버전과 현재 서비스되고 있는 REST API 버전으로 나누어져 있습니다.
 
-## [웹 어플리케이션 버전](https://github.com/geeksbaek/Project-Arche) (2014~2015)
+### [웹 어플리케이션 버전](https://github.com/geeksbaek/Project-Arche) (2014~2015)
 
 #### Summary
 
@@ -104,7 +104,7 @@ Frontend는 [Google Charts](https://developers.google.com/chart/) 라이브러�
 
 이 어플리케이션은 지금은 서비스되고 있지 않습니다. 대신 [동영상](https://www.youtube.com/watch?v=k35ciJNoqR0)으로 체험하실 수 있습니다.
 
-## REST API 버전 (2017)
+### REST API 버전 (2017)
 
 #### Summary
 
