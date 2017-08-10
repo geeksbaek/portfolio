@@ -80,9 +80,9 @@ Project Arche는 [아키에이지](http://archeage.xlgames.com/)라는 MMORPG �
 
 #### Details
 
-통계를 내기 위해 정기적으로 Google Apps Script (이하 GAS)에서 웹 크롤링 및 파싱을 수행합니다. GAS는 urlFetch라는 API로 HTTP 통신이 가능하므로 크롤링할 수 있습니다. 하지만 jQuery 같은 외부 자바스크립트 라이브러리를 사용하기 어려우므로 주로 정규 표현식으로 데이터를 파싱했습니다. 
+통계를 내기 위해 정기적으로 Google Apps Script (이하 GAS)에서 웹 크롤링 및 파싱을 수행합니다. GAS는 urlFetch라는 API로 HTTP 통신이 가능하므로 크롤링할 수 있습니다. 하지만 jQuery 같은 외부 자바스크립트 라이브러리를 사용하기 어려우므로 주로 정규 표현식으로 데이터를 파싱했습니다.
 
-파싱된 데이터는 타임스탬프와 함께 Google Spreadsheets에 저장합니다. GAS에서 Spreadsheets에 접근하는 API를 제공했고, 저장할 데이터양도 크지 않았기 때문에 데이터베이스로 Spreadsheets를 선택한 것은 나쁘지 않은 선택이었습니다. 
+파싱된 데이터는 타임스탬프와 함께 Google Spreadsheets에 저장합니다. GAS에서 Spreadsheets에 접근하는 API를 제공했고, 저장할 데이터양도 크지 않았기 때문에 데이터베이스로 Spreadsheets를 선택한 것은 나쁘지 않은 선택이었습니다.
 
 Frontend는 [Google Charts](https://developers.google.com/chart/) 라이브러리를 통해 해당 Spreadsheets의 데이터를 사용자들에게 보여줍니다. UI는 Polymer에서 제공하는 머터리얼 디자인으로 만들어진 컴포넌트들을 사용하여 구성했습니다.
 
@@ -178,10 +178,9 @@ goinside/gallog 에는 [Session.FetchAll](https://godoc.org/github.com/geeksbaek
 현재 테스트 코드의 커버리지는 약 60%이며, 지속해서 코드의 안정성을 개선하고 있습니다. (travis 빌드 도구를 통해 측정된 커버리지는 로컬에서만 수행할 수 있는 일부 테스트 코드를 주석처리 했기 때문에 정확하지 않습니다)
 
 ```
-PS C:\Users\geeks\Documents\github\goinside> go test -cover
+PS C:\Users\geeks\Documents\GitHub\goinside> go test -cover
 PASS
-coverage: 59.3% of statements
-ok      _/C_/Users/geeks/Documents/github/goinside      8.424s
+coverage: 74.2% of statements
 ```
 
 #### Story
@@ -194,12 +193,12 @@ ok      _/C_/Users/geeks/Documents/github/goinside      8.424s
 
 - [goinside-image-crawler](https://github.com/geeksbaek/goinside-image-crawler)
 
-goinside-image-crawler는 디시인사이드에 게시되는 글에서 이미지를 수집하는 프로그램입니다. 
+goinside-image-crawler는 디시인사이드에 게시되는 글에서 이미지를 수집하는 프로그램입니다.
 
-익명의 요청을 받아 개발했습니다. 여러 개의 이미지를 동시적으로 내려받으며, 이미지 중복 검사 기능이 있어 중복된 이미지는 내려받지 않습니다. 현재는 [이슈](https://github.com/geeksbaek/goinside/issues/9)가 있어 정상적으로 동작하지 않습니다.
+익명의 요청을 받아 개발했습니다. 여러 개의 이미지를 동시적으로 내려받으며, 이미지 중복 검사 기능이 있어 중복된 이미지는 내려받지 않습니다.
 
 - [goinside-gallog-cleaner](https://github.com/geeksbaek/goinside-gallog-cleaner)
 
 goinside-gallog-cleaner는 일명 디시 클리너라고 불리는 프로그램입니다. 회원으로 작성한 모든 글과 댓글을 삭제해줍니다.
 
-디시인사이드에는 자신의 글을 일괄 삭제하는 기능이 없으므로 이런 작업을 대신 해주는 프로그램에 대한 수요가 항상 있었습니다. 과거부터 수많은 디시 클리너들이 있었지만, 지금은 모두 사용이 막힌 상태이기 때문에 누군가 새로운 디시 클리너를 만들어야 했습니다. 정작 저는 디시인사이드 회원이 아니므로 사용하지 않는 프로그램이지만, 다른 많은 사용자를 위해 지속해서 관리하고 있습니다. 현재 누적 다운로드 1.4만 번을 기록할 정도로 인기 있는 프로그램입니다.
+디시인사이드에는 자신의 글을 일괄 삭제하는 기능이 없으므로 이런 작업을 대신 해주는 프로그램에 대한 수요가 항상 있었습니다. 과거부터 수많은 디시 클리너들이 있었지만, 지금은 모두 사용이 막힌 상태이기 때문에 누군가 새로운 디시 클리너를 만들어야 했습니다. 정작 저는 디시인사이드 회원이 아니므로 사용하지 않는 프로그램이지만, 다른 많은 사용자를 위해 지속해서 관리하고 있습니다. 현재 누적 다운로드 1.5만 번을 기록할 정도로 인기 있는 프로그램입니다.
