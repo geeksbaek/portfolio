@@ -177,12 +177,6 @@ goinside/gallog 에는 [Session.FetchAll](https://godoc.org/github.com/geeksbaek
 
 현재 테스트 코드의 커버리지는 약 80%이며, 지속해서 코드의 안정성을 개선하고 있습니다. (travis 빌드 도구를 통해 측정된 커버리지는 로컬에서만 수행할 수 있는 일부 테스트 코드를 주석처리 했기 때문에 정확하지 않습니다)
 
-```
-PS C:\Users\geeks\Documents\GitHub\goinside> go test -cover
-PASS
-coverage: 74.2% of statements
-```
-
 #### Story
 
 사실 이 라이브러리는 아래에서 설명해 드릴 [goinside-gallog-cleaner](https://github.com/geeksbaek/goinside-gallog-cleaner)라는 프로그램을 만들다가 점점 커지는 코드를 쉽게 관리하기 위해 분리한 것입니다. API 라이브러리를 만들어 두면 봇을 만드는데 사용하는 등 여러모로 쓸모가 있을 거라고 생각했습니다. 이 라이브러리로 제작한 [goinside-image-crawler](https://github.com/geeksbaek/goinside-image-crawler)라는 이미지 수집 프로그램도 있습니다.
