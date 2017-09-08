@@ -176,13 +176,7 @@ goinside는 제가 지금까지 개발한 라이브러리 중에서 가장 규�
 
 goinside/gallog 에는 [Session.FetchAll](https://godoc.org/github.com/geeksbaek/goinside/gallog#Session.FetchAll), [Session.DeleteAll](https://godoc.org/github.com/geeksbaek/goinside/gallog#Session.DeleteAll)과 같은 대량 HTTP 작업을 수행하는 함수가 있습니다. Go가 동시성을 잘 지원하는 덕분에 이런 대량 HTTP 작업을 동시적으로 빠르게 처리하도록 [구현](https://github.com/geeksbaek/goinside/blob/master/gallog/gallog.go#L205-L249)할 수 있었습니다. 매 요청을 별도의 Goroutine에서 수행하도록 하여 비차단식으로 작동하며, 동시에 너무 많은 Gorountine이 생성되지 않도록 제한을 걸어두었습니다.
 
-현재 테스트 코드의 커버리지는 약 60%이며, 지속해서 코드의 안정성을 개선하고 있습니다. (travis 빌드 도구를 통해 측정된 커버리지는 로컬에서만 수행할 수 있는 일부 테스트 코드를 주석처리 했기 때문에 정확하지 않습니다)
-
-```
-PS C:\Users\geeks\Documents\GitHub\goinside> go test -cover
-PASS
-coverage: 74.2% of statements
-```
+현재 테스트 코드의 커버리지는 약 80%이며, 지속해서 코드의 안정성을 개선하고 있습니다. (travis 빌드 도구를 통해 측정된 커버리지는 로컬에서만 수행할 수 있는 일부 테스트 코드를 주석처리 했기 때문에 정확하지 않습니다)
 
 #### Story
 
