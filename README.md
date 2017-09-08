@@ -1,6 +1,6 @@
 # Portfolio
 
-이 페이지에서는 제가 개인적으로 프로젝트 중에서 상대적으로 큰 프로젝트들을 모아 설명하고 있습니다. 대부분의 소스는 GitHub에 공개되어 있습니다.
+이 페이지에서는 제가 개인적으로 프로젝트 중에서 몇 개를 추려 설명하고 있습니다. 대부분의 소스는 GitHub에 공개되어 있습니다.
 
 ## Ability
 
@@ -8,7 +8,7 @@
 
 - Language
   - Go
-  - Javascript / node.js / HTML / CSS
+  - JavaScript / node.js
   - C/C++
   - Java
 - Framework / Toolkit
@@ -27,6 +27,7 @@
 - [ourChess (2012)](https://github.com/geeksbaek/portfolio#ourchess-2012)
 - [Project Arche (2014~2017)](https://github.com/geeksbaek/portfolio#project-arche-20142017)
 - [goinside (2016~)](https://github.com/geeksbaek/portfolio#goinside-2016)
+- [etc.](https://github.com/geeksbaek/portfolio#etc)
 
 ## [ourChess](https://github.com/geeksbaek/ourChess) (2012)
 
@@ -202,3 +203,25 @@ goinside-image-crawler는 디시인사이드에 게시되는 글에서 이미지
 goinside-gallog-cleaner는 일명 디시 클리너라고 불리는 프로그램입니다. 회원으로 작성한 모든 글과 댓글을 삭제해줍니다.
 
 디시인사이드에는 자신의 글을 일괄 삭제하는 기능이 없으므로 이런 작업을 대신 해주는 프로그램에 대한 수요가 항상 있었습니다. 과거부터 수많은 디시 클리너들이 있었지만, 지금은 모두 사용이 막힌 상태이기 때문에 누군가 새로운 디시 클리너를 만들어야 했습니다. 정작 저는 디시인사이드 회원이 아니므로 사용하지 않는 프로그램이지만, 다른 많은 사용자를 위해 지속해서 관리하고 있습니다. 현재 누적 다운로드 1.5만 번을 기록할 정도로 인기 있는 프로그램입니다.
+
+## Etc.
+
+#### [drawing-quiz](https://github.com/geeksbaek/drawing-quiz)
+
+Polymer와 socket.io를 사용해서 캐치마인드의 웹 버전 개발을 시도했었습니다. 당시에 Polymer 라이브러리가 충분히 성숙하지 않은 시점이어서 개발을 보류했습니다.
+
+#### [go-arp-spoofer](https://github.com/geeksbaek/go-arp-spoofer)
+
+대학교에서 *"ARP Spoofing을 통한 ID, PASSWORD 파싱"* 이라는 주제로 개발한 ARP 스푸핑 툴입니다. Go의 동시성 특징을 적극적으로 활용하여 개발되었습니다. 동시에 복수의 인터페이스, 복수의 세션을 동시에 공격할 수 있는 특징이 있습니다. 자세한 설명은 [이 PPT](https://onedrive.live.com/redir?resid=75AF0E3BAC6794A2!5977&authkey=!AMk1emIWlg96vk8&ithint=file%2cpptx)에서 보실 수 있습니다.
+
+#### [go-network-monitoring](https://github.com/geeksbaek/go-network-monitoring)
+
+대학교에서 개발한 네트워크 트래픽 통계 툴입니다. 마찬가지로 Go로 개발하였으며, 네트워크 in-path 구간에서 사용할 수 있습니다. 최적화를 고려하지 않고 간단하게 만들었기 때문에 일정 트래픽 이상이 발생하는 네트워크에서는 정상적인 통계를 내지 못할 수 있습니다.
+
+<p align="center">
+  <img src="http://i.imgur.com/FkjatPv.png">
+</p>
+
+#### [go-decrypt-dot11](https://github.com/geeksbaek/go-decrypt-dot11)
+
+대학교에서 개발을 시도했던 802.11 프로토콜 복호화 프로그램입니다. 무선 네트워크 인터페이스 카드로 802.11 전파를 캡쳐하여 실시간으로 복호화 할 수 있는지 실험하기 위한 프로젝트였습니다. 난이도가 있는 작업이었고, 프로젝트 마감 시한에 맞추기 위해 중도 포기했던 프로젝트입니다. 마찬가지로 Go를 사용했습니다.
