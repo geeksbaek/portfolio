@@ -13,7 +13,7 @@
   - Java
 - Framework / Toolkit
   - [Polymer](https://www.polymer-project.org/)
-  - [Angular](https://angular.io/)
+  - [React](https://reactjs.org/)
 - Environment
   - Google Cloud Compute
   - Amazon Web Service
