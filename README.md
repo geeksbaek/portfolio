@@ -33,9 +33,9 @@
 
 ### 요약
 
-pokedex는 모바일 게임 'Pokémon GO'의 플레이를 보조하기 위한 구글 어시스턴트 앱입니다. 또는 AoG(Actions on Google)라고도 부릅니다. Android 5.0 이상의 휴대전화, iOS 10.0 이상의 기기에서 사용할 수 있습니다.
+pokedex는 모바일 게임 'Pokémon GO'의 플레이를 보조하기 위한 구글 어시스턴트 앱입니다. 또는 AoG(Actions on Google)라고도 부릅니다. 음성 또는 텍스트를 통해 Pokémon GO에 관한 질문을 하면 적절한 응답을 돌려줍니다.
 
-음성 또는 텍스트를 통해 Pokémon GO에 관한 질문을 하면 구현된 Action 안에서 응답을 받을 수 있습니다. (pokedex는 [Dialogflow](https://cloud.google.com/dialogflow/) 기반으로 개발되었습니다. Dialogflow의 자세한 동작 방식은 [여기](https://github.com/dialogflow/resources)에서 확인할 수 있습니다.)
+pokedex는 [Dialogflow](https://cloud.google.com/dialogflow/) 기반으로 개발되었으며 자세한 동작 방식은 [여기](https://github.com/dialogflow/resources)에서 확인할 수 있습니다.
 
 ### 자세히
 
@@ -53,10 +53,10 @@ DB는 [gameinfo.io](https://pokemon.gameinfo.io/ko/)라는 웹사이트를 스�
 
 ### 사용해보기
 
-휴대전화에서 구글 어시스턴트를 호출한 뒤 `포켓몬 도감과 대화`와 같은 명령으로 pokedex를 호출해 사용해 볼 수 있습니다. 또는 [여기](https://assistant.google.com/services/a/uid/000000ff71813a93?hl=ko)에서 휴대전화로 명령을 보내서 호출할 수 있습니다.
+pokedex는 Android 5.0 이상의 휴대전화, iOS 10.0 이상의 기기에서 사용할 수 있습니다. 휴대전화에서 구글 어시스턴트를 호출한 뒤 `포켓몬 도감과 대화`와 같은 명령으로 pokedex를 호출하거나 [여기](https://assistant.google.com/services/a/uid/000000ff71813a93?hl=ko)에서 pokedex를 실행하는 명령을 휴대전화로 보낼 수 있습니다.
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/geeksbaek/portfolio/master/src/default.gif" width="170"> <img src="https://raw.githubusercontent.com/geeksbaek/portfolio/master/src/deeplink.gif" width="170">
+  <img src="https://raw.githubusercontent.com/geeksbaek/portfolio/master/src/default.gif" width="250">
 </p>
 
 ## [goinside](https://github.com/geeksbaek/goinside) (2016~2018)
