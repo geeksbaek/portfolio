@@ -55,6 +55,10 @@ DB는 [gameinfo.io](https://pokemon.gameinfo.io/ko/)라는 웹사이트를 스�
 
 휴대전화에서 구글 어시스턴트를 호출한 뒤 `포켓몬 도감과 대화`와 같은 명령으로 pokedex를 호출해 사용해 볼 수 있습니다. 또는 [여기](https://assistant.google.com/services/a/uid/000000ff71813a93?hl=ko)에서 휴대전화로 명령을 보내서 호출할 수 있습니다.
 
+<p align="center">
+  <img src="https://raw.githubusercontent.com/geeksbaek/portfolio/master/src/default.gif" width="170"> <img src="https://raw.githubusercontent.com/geeksbaek/portfolio/master/src/deeplink.gif" width="170">
+</p>
+
 ## [goinside](https://github.com/geeksbaek/goinside) (2016~2018)
 
 [![GitHub stars](https://img.shields.io/github/stars/geeksbaek/goinside.svg?style=social&label=Star&maxAge=2592000)](https://GitHub.com/geeksbaek/goinside/stargazers/)
