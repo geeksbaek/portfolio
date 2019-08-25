@@ -49,7 +49,9 @@ DB는 [gameinfo.io](https://pokemon.gameinfo.io/ko/)라는 웹사이트를 스�
 
 ### 비하인드 스토리
 
-대부분의 개인 프로젝트가 그러하듯이 pokedex도 개인적인 필요성에 의해 개발된 프로젝트이지만, 이번에는 GCP 크레딧을 얻기 위한 목적도 있었습니다. (Google Assistant 개발자들에게 1년간 매월 200달러의 크레딧을 주는 [프로그램](https://developers.google.com/actions/community/overview)이 있습니다) 이 프로젝트 덕분에 이후 다른 프로젝트에서 GCP 리소스를 마음 편히 사용할 수 있게 되었습니다.
+포켓몬 GO의 레이드 컨텐츠에서 사용하려는 목적으로 개발했습니다. 포켓몬의 상성에 맞춰서 적절한 덱을 구성해야 하는데, 공격 상성과 방어 상성을 모두 따지기가 꽤 어렵기 때문입니다. 상성 뿐 아니라 IV 차트 보기, 포켓몬 둥지 찾기 등 다양한 기능을 추가 개발하고 있습니다.
+
+대부분의 개인 프로젝트가 그러하듯이 pokedex도 개인적인 필요에 의해 개발된 프로젝트이지만, 이번에는 GCP 크레딧을 얻기 위한 목적도 있었습니다. Google Assistant 개발자들에게 1년간 매월 200달러의 크레딧을 주는 [프로그램](https://developers.google.com/actions/community/overview)이 있는데 덕분에 이후 다른 프로젝트에서 GCP 리소스를 마음 편히 사용할 수 있게 되었습니다.
 
 ### 사용해보기
 
@@ -145,7 +147,7 @@ ourchess는 웹 기반으로 개발된 멀티플레이어 1:1 체스게임입니
 
 ### 사용해보기
 
-[이곳](https://ourchess-fyinkdszda-uc.a.run.app/)에서 직접 플레이해보실 수 있습니다. 플랫폼으로 사용 중인 Google Could Run이 아직 WebSocket을 완전히 지원하지 않아 기능이 100% 동작하지는 않으나 체험해보는 정도에는 무리가 없습니다.
+[이곳](https://ourchess-fyinkdszda-uc.a.run.app/)에서 직접 플레이해보실 수 있습니다. 플랫폼으로 사용 중인 Google Could Run이 아직 WebSocket을 완전히 지원하지 않아 모든 기능이 동작하지는 않습니다.
 
 ## Etc
 
@@ -153,13 +155,13 @@ ourchess는 웹 기반으로 개발된 멀티플레이어 1:1 체스게임입니
 
 `#react` `#firebase`
 
-테슬라 모델 3의 한국 출시를 기다리며 개발한 서비스입니다. 최신 환율 정보를 바탕으로 예상 구매 가격을 계산해줍니다. 최근 모델 3가 정식 오픈하게 되면서 지원을 중지하게 되었습니다. [여기](https://geeksbaek.github.io/tesla-model-3-earlybird/#/)에 호스팅은 유지되고 있습니다.
+테슬라 모델 3의 한국 출시를 기다리며 개발한 서비스입니다. 최신 환율 정보를 바탕으로 예상 구매 가격을 계산해줍니다. 최근 모델 3가 정식 오픈하게 되면서 지원을 중지하게 되었습니다. [여기](https://geeksbaek.github.io/tesla-model-3-earlybird/#/)에서 호스팅은 유지되고 있습니다.
 
 ### [Project Arche](https://github.com/geeksbaek/Project-Arche)
 
 `#go` `#web_scraping` `#gcp` `#polymer` `#restful`
 
-아키에이지라는 MMORPG 사용자들에게 도움을 주기 위해 개발한 서비스입니다. 지금은 서비스가 중지된 웹 어플리케이션 버전과 현재 서비스되고 있는 REST API 버전으로 나누어져 있습니다.
+아키에이지라는 MMORPG 사용자들에게 도움을 주기 위해 개발한 서비스입니다. 지금은 서비스가 중지된 웹 어플리케이션 버전과 현재 서비스되고 있는 API 버전으로 나누어져 있습니다. [여기](https://project-arche.appspot.com/api/auctions/total/%EB%AA%A9%EC%9E%AC/10)에서 API 버전을 테스트할 수 있습니다.
 
 <p align="center">
   <img src="http://i.imgur.com/hvVFxEz.gif" width="300"> <img src="http://i.imgur.com/YzLMsAp.gif"  width="300">
@@ -169,7 +171,7 @@ ourchess는 웹 기반으로 개발된 멀티플레이어 1:1 체스게임입니
 
 `#go` `#network`
 
-대학교에서 *"ARP Spoofing을 통한 ID, PASSWORD 파싱"* 이라는 주제로 개발한 ARP 스푸핑 툴입니다. Go의 동시성 특징을 적극적으로 활용하여 개발되었습니다. 동시에 복수의 인터페이스, 복수의 세션을 동시에 공격할 수 있는 특징이 있습니다. 자세한 설명은 [이 PPT](https://onedrive.live.com/redir?resid=75AF0E3BAC6794A2!5977&authkey=!AMk1emIWlg96vk8&ithint=file%2cpptx)에서 보실 수 있습니다.
+대학교에서 "ARP Spoofing을 통한 ID, PASSWORD 파싱" 이라는 주제로 개발한 ARP 스푸핑 툴입니다. Go의 동시성 특징을 적극적으로 활용하여 개발되었습니다. 동시에 복수의 인터페이스, 복수의 세션을 동시에 공격할 수 있는 특징이 있습니다. 자세한 설명은 [PPT](https://onedrive.live.com/redir?resid=75AF0E3BAC6794A2!5977&authkey=!AMk1emIWlg96vk8&ithint=file%2cpptx)에 소개되어 있습니다.
 
 ### [go-network-monitoring](https://github.com/geeksbaek/go-network-monitoring)
 
