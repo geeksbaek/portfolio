@@ -12,6 +12,7 @@
 - 프레임워크 / 툴킷
   - React
   - Polymer
+  - **Dialogflow**
 - 퍼블릭 클라우드
   - **Firebase**
   - **Google Cloud Platform**
@@ -33,29 +34,35 @@
 
 ### 요약
 
-pokedex는 모바일 게임 'Pokémon GO'의 플레이를 보조하기 위한 구글 어시스턴트 앱입니다. 또는 AoG(Actions on Google)라고도 부릅니다. 음성 또는 텍스트를 통해 Pokémon GO에 관한 질문을 하면 적절한 응답을 돌려줍니다.
+pokedex는 Pokémon GO 라는 모바일 게임의 플레이를 보조하기 위한 일종의 챗봇입니다. 음성 또는 텍스트로 명령을 내릴 수 있습니다. 예를 들어 휴대전화에 대고 `Ok, Google. 리자몽 약점 뭐야?` 라고 물어볼 수 있습니다.
 
-pokedex는 [Dialogflow](https://cloud.google.com/dialogflow/) 기반으로 개발되었으며 자세한 동작 방식은 [여기](https://github.com/dialogflow/resources)에서 확인할 수 있습니다.
+(pokedex는 Actions on Google(AoG) 이라고 부르는 Google Assistant 플랫폼에서 동작합니다. [Dialogflow](https://cloud.google.com/dialogflow/) 기반으로 개발되었으며 이에 대한 자세한 설명은 [여기](https://github.com/dialogflow/resources)에 소개되어 있습니다)
 
 ### 자세히
 
-Dialogflow로 AoG를 개발하는 것은 크게 프론트엔드 격인 Dialogflow Agent를 구현하는 것과 백엔드 격인 Fulfillment를 구현하는 것으로 나뉩니다. pokedex는 여기에 추가로 Fulfillment에서 참조할 포켓몬 DB를 구축하는 작업이 필요합니다.
+pokedex는 크게 프론트엔드 격인 Dialogflow Agent와 백엔드 격인 Fulfillment 서버, 그리고 포켓몬 DB로 구성되어 있으며 아래와 같은 방식으로 동작합니다.
 
-Dialogflow Agent는 사용자의 요청에서 의도를 파악하고 파싱하는 일을 맡습니다. Agent를 구현한다는 것은 GUI로 된 웹 페이지에서 적절한 훈련 문구 등을 입력하여 Dlalogflow의 AI를 학습시키는 일을 의미합니다. 저는 포켓몬의 정보, 포켓몬의 약점과 같은 질문을 이해할 수 있도록 학습시켰습니다.
+<p align="center">
+  <img src="https://raw.githubusercontent.com/dialogflow/resources/master/images/overview.png" width="1000">
+</p>
 
-예를 들어 `리자몽은 약점이 뭐야?`라는 요청을 받게 되었을 때, Agent는 제가 정의한 의도(Intent)에서 `약점`과 관련된 의도가 있는 것을 확인하고, 해당 의도에서 전달받을 수 있는 `리자몽`이라는 인자를 확인합니다. 그런 다음 해당 의도에 정의된 응답을 수행하는데, 복잡한 응답이 필요한 경우 Fulfillment라는 WebHook 서버로 요청을 넘겨 응답을 처리할 수 있습니다. Fulfillment로 `약점`이라는 의도와 `리자몽`이라는 인자가 전달되면 Fulfillment는 DB를 참조해서 적절한 응답을 생성합니다.
+1. 사용자의 요청이 AoG를 통해 Agent로 전달되면 Agent는 의도를 파악하고 파싱을 시도합니다.
+2. 의도가 파악되면 Fulfillment라는 WebHook 서버로 요청을 넘깁니다.
+3. Fulfillment는 요청을 받아 적절한 응답을 생성해 돌려줍니다.
 
-DB는 [gameinfo.io](https://pokemon.gameinfo.io/ko/)라는 웹사이트를 스크래핑하여 구축했습니다. 게임 특성상 포켓몬 데이터는 수정될 일이 거의 없기 때문에 DB 서버를 두는 대신에 데이터를 JSON 파일로 묶어 Fulfillment 서버와 함께 두고 전역 변수에 JavaScript 객체로 불러와 접근하도록 했습니다. 이 방법은 DB 서버를 거치지 않아 성능적으로 이점을 가집니다.
+예를 들어 `리자몽 약점 뭐야?`라는 요청을 받게 되었을 때, Agent는 미리 정의한 의도 중에서 `약점`과 관련된 의도가 존재하는 것을 확인하고, 해당 의도에서 전달받을 수 있는 인자인 키워드 `리자몽`을 파싱합니다. Fulfillment로 `약점`이라는 의도와 `리자몽`이라는 인자가 전달되면 Fulfillment는 DB를 참조해서 적절한 응답을 생성하여 반환하게 됩니다.
+
+DB는 [gameinfo.io](https://pokemon.gameinfo.io/ko/)라는 웹사이트를 스크래핑하여 구축했습니다. 게임 특성상 포켓몬 데이터는 수정될 일이 거의 없기 때문에 DB 서버를 두는 대신에 데이터를 JSON 파일로 직렬화하여 Fulfillment 서버와 함께 두고 전역 변수에 JavaScript 객체로 불러와 접근하도록 했습니다.
 
 ### 비하인드 스토리
 
-포켓몬 GO의 레이드 컨텐츠에서 사용하려는 목적으로 개발했습니다. 포켓몬의 상성에 맞춰서 적절한 덱을 구성해야 하는데, 공격 상성과 방어 상성을 모두 따지기가 꽤 어렵기 때문입니다. 상성 뿐 아니라 IV 차트 보기, 포켓몬 둥지 찾기 등 다양한 기능을 추가 개발하고 있습니다.
+포켓몬 GO의 레이드 컨텐츠에서 사용하려는 목적으로 개발했습니다. 포켓몬의 상성을 따져보고 유리한 덱을 구성해야 하는데 검색을 하지 않는 이상 한계가 있기 때문입니다. 브라우저를 키고 상성을 검색하는 시간을 더 단축시키고 싶었습니다. pokedex를 이용하면 말 한마디로 상성을 확인할 수 있습니다. 상성 뿐 아니라 IV 차트 보기, 포켓몬 둥지 찾기 등 다양한 기능을 추가 개발하고 있습니다.
 
-대부분의 개인 프로젝트가 그러하듯이 pokedex도 개인적인 필요에 의해 개발된 프로젝트이지만, 이번에는 GCP 크레딧을 얻기 위한 목적도 있었습니다. Google Assistant 개발자들에게 1년간 매월 200달러의 크레딧을 주는 [프로그램](https://developers.google.com/actions/community/overview)이 있는데 덕분에 이후 다른 프로젝트에서 GCP 리소스를 마음 편히 사용할 수 있게 되었습니다.
+대부분의 개인 프로젝트가 그러하듯이 pokedex도 개인적인 필요에 의해 개발된 프로젝트이지만, 이번에는 GCP 크레딧을 얻기 위한 목적도 있었습니다. Google Assistant 개발자들에게 1년간 매월 200달러의 크레딧을 주는 [프로그램](https://developers.google.com/actions/community/overview)이 있는데, pokedex 덕분에 프로그램에 통과되어 이후 다른 프로젝트에서 GCP 리소스를 마음 편히 사용할 수 있게 되었습니다.
 
 ### 사용해보기
 
-pokedex는 Android 5.0 이상의 휴대전화, iOS 10.0 이상의 기기에서 사용할 수 있습니다. 휴대전화에서 구글 어시스턴트를 호출한 뒤 `포켓몬 도감과 대화`와 같은 명령으로 pokedex를 호출하거나 [여기](https://assistant.google.com/services/a/uid/000000ff71813a93?hl=ko)에서 pokedex를 실행하는 명령을 휴대전화로 보낼 수 있습니다.
+휴대전화에서 구글 어시스턴트를 호출한 뒤 `포켓몬 도감과 대화`와 같은 명령으로 pokedex를 호출하거나 [여기](https://assistant.google.com/services/a/uid/000000ff71813a93?hl=ko)에서 pokedex를 실행하는 명령을 휴대전화로 보낼 수 있습니다. (Android 5.0 이상의 휴대전화, iOS 10.0 이상의 기기에서 사용할 수 있습니다)
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/geeksbaek/portfolio/master/src/default.gif" width="250">
