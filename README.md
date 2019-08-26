@@ -34,21 +34,21 @@
 
 ### 요약
 
-pokedex는 Pokémon GO 라는 모바일 게임의 플레이를 보조하기 위한 일종의 챗봇입니다. 음성 또는 텍스트로 명령을 내릴 수 있습니다. 예를 들어 휴대전화에 대고 `Ok, Google. 리자몽 약점 뭐야?` 라고 물어볼 수 있습니다.
+pokedex는 Pokémon GO 라는 모바일 게임의 플레이를 보조하기 위한 일종의 챗봇입니다. 음성 또는 텍스트로 대화를 할 수 있습니다. 예를 들어 휴대전화에 대고 `Ok, Google. 리자몽 약점 뭐야?` 라는 질문을 할 수 있습니다.
 
 (pokedex는 Actions on Google(AoG) 이라고 부르는 Google Assistant 플랫폼에서 동작합니다. [Dialogflow](https://cloud.google.com/dialogflow/) 기반으로 개발되었으며 이에 대한 자세한 설명은 [여기](https://github.com/dialogflow/resources)에 소개되어 있습니다)
 
 ### 자세히
 
-pokedex는 크게 프론트엔드 격인 Dialogflow Agent와 백엔드 격인 Fulfillment 서버, 그리고 포켓몬 DB로 구성되어 있으며 아래와 같은 방식으로 동작합니다.
+pokedex는 프론트엔드 격인 Dialogflow Agent와 백엔드 격인 Fulfillment 서버, 그리고 포켓몬 DB로 구성되어 있으며 아래와 같은 방식으로 동작합니다.
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/dialogflow/resources/master/images/overview.png" width="1000">
 </p>
 
 1. 사용자의 요청이 AoG를 통해 Agent로 전달되면 Agent는 의도를 파악하고 파싱을 시도합니다.
-2. 의도가 파악되면 Fulfillment라는 WebHook 서버로 요청을 넘깁니다.
-3. Fulfillment는 요청을 받아 적절한 응답을 생성해 돌려줍니다.
+2. 의도가 파악되면 파싱 결과를 Fulfillment라는 WebHook 서버로 보냅니다.
+3. Fulfillment는 파싱된 요청을 받아 적절한 응답을 생성해 돌려줍니다.
 
 예를 들어 `리자몽 약점 뭐야?`라는 요청을 받게 되었을 때, Agent는 미리 정의한 의도 중에서 `약점`과 관련된 의도가 존재하는 것을 확인하고, 해당 의도에서 전달받을 수 있는 인자인 키워드 `리자몽`을 파싱합니다. Fulfillment로 `약점`이라는 의도와 `리자몽`이라는 인자가 전달되면 Fulfillment는 DB를 참조해서 적절한 응답을 생성하여 반환하게 됩니다.
 
